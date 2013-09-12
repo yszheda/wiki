@@ -3,13 +3,54 @@
 <head>
 <link rel="Stylesheet" type="text/css" href="style.css">
 <title>git</title>
-<meta http-equiv="Content-Type" content="text/html; charset=cp950">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 
 <h1 id="toc_1">My Git Tips</h1>
 
-<h2 id="toc_1.1">Rebase</h2>
+<h2 id="toc_1.1">Git Commands</h2>
+
+<p>
+Print SHA1 hash
+</p>
+<pre>
+$ git rev-parse master
+$ git rev-parse ca82a6dff817
+$ git rev-parse v0.1
+ca82a6dff817ec66f44342007202690a93763949
+</pre>
+
+<pre>
+$ git cat-file -p
+</pre>
+
+
+<pre>
+$ git ls-files -s
+</pre>
+
+<pre>
+$ git write-tree
+</pre>
+
+<h2 id="toc_1.2">Log</h2>
+
+<pre>
+$ git log --follow &lt;file&gt;
+</pre>
+
+<pre>
+$ git log --merge --left-right -p
+</pre>
+
+<h2 id="toc_1.3">Commit</h2>
+
+<pre>
+$ git bisect [start | bad | good]
+</pre>
+
+<h2 id="toc_1.4">Rebase</h2>
 
 </body>
 </html>
