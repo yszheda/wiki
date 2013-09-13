@@ -64,17 +64,61 @@ $ git write-tree
 $ git log --follow &lt;file&gt;
 </pre>
 
+<p>
+Show diffs first for the HEAD version and then the MERGE_HEAD version
+</p>
 <pre>
-$ git log --merge --left-right -p
+$ git log --merge --left-right -p [&lt;file&gt;]
 </pre>
 
-<h2 id="toc_1.3">Commit</h2>
+<p>
+Search &lt;string&gt;
+</p>
+<pre>
+$ git log -S&lt;string&gt; [--pretty=oneline] [--abbrev-commit] &lt;file&gt;
+</pre>
+
+<h2 id="toc_1.3">Diff</h2>
+
+<pre>
+$ git diff master bug/pr-1
+# equivalent to
+$ git diff master..bug/pr-1
+</pre>
+
+<pre>
+$ git diff -S&lt;string&gt;
+$ git diff -S"&lt;string&gt;"
+</pre>
+
+<h2 id="toc_1.4">Commit</h2>
 
 <pre>
 $ git bisect [start | bad | good]
 </pre>
 
-<h2 id="toc_1.4">Rebase</h2>
+
+<h2 id="toc_1.5">Merge</h2>
+
+<ul>
+<li>
+Policies:
+
+<ul>
+<li>
+resolve
+
+<li>
+recursive
+
+<li>
+octopus
+
+</ul>
+</ul>
+
+
+<h2 id="toc_1.6">Rebase</h2>
 
 </section>
 <aside id="sidebar">
