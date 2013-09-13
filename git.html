@@ -33,7 +33,7 @@
 
 <h1 id="toc_1">My Git Tips</h1>
 
-<h2 id="toc_1.1">Git Commands</h2>
+<h2 id="toc_1.1">Git Low-level Commands</h2>
 
 <p>
 Print SHA1 hash
@@ -193,6 +193,46 @@ $ git cherry-pick A..C
 </pre>
 
 <h2 id="toc_1.7">Rebase</h2>
+
+
+<h2 id="toc_1.8">Useful Tips</h2>
+
+<p>
+Delete tmp files
+</p>
+<pre>
+$ git filter-branch --tree-filter 'rm -f *~' -- --all
+</pre>
+
+<p>
+Overview of what has been changed 
+</p>
+<pre>
+$ git whatchanged --since="three days ago" --oneline
+</pre>
+<pre>
+$ git whatchanged ORIG_HEAD...HEAD
+</pre>
+
+<p>
+Search
+</p>
+<pre>
+$ git grep
+</pre>
+
+<p>
+Control file tracing
+</p>
+<pre>
+# [add Makefile changes I do not want published]
+$ git update-index --no-assume-unchanged Makefile
+$ git add -p Makefile
+# [add Makefile changes I want published]
+$ git commmit
+$ git update-index --assume-unchanged Makefile
+$ git push
+</pre>
 
 </section>
 <aside id="sidebar">
