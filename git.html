@@ -118,7 +118,81 @@ octopus
 </ul>
 
 
-<h2 id="toc_1.6">Rebase</h2>
+<h2 id="toc_1.6">Reset</h2>
+
+<p>
+Alterations:
+<table>
+<tr>
+<td>
+options
+</td>
+<td>
+HEAD
+</td>
+<td>
+index
+</td>
+<td>
+work_dir
+</td>
+</tr>
+<tr>
+<td>
+--soft
+</td>
+<td>
+Yes
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+</tr>
+<tr>
+<td>
+--mixed
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+<td>
+No
+</td>
+</tr>
+<tr>
+<td>
+--hard
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+</table>
+</p>
+
+<pre>
+$ git cherry-pick &lt;commit&gt;
+</pre>
+
+<pre>
+# on branch master
+$ git cherry-pick A..C
+# will add A' B' C' commits on branch master
+</pre>
+
+<h2 id="toc_1.7">Rebase</h2>
 
 </section>
 <aside id="sidebar">
