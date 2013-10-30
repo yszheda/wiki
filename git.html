@@ -204,14 +204,22 @@ $ git stash apply
 $ git stash drop
 </pre>
 
-<h2 id="toc_1.9">Remote</h2>
+<h2 id="toc_1.9">Reflog</h2>
+
+<pre>
+$ git reflog expire --expire=now --all
+$ git gc
+</pre>
+
+
+<h2 id="toc_1.10">Remote</h2>
 
 <pre>
 $ git remote -v
 </pre>
 
 
-<h2 id="toc_1.10">Useful Tips</h2>
+<h2 id="toc_1.11">Useful Tips</h2>
 
 <p>
 Delete tmp files
