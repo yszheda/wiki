@@ -218,6 +218,20 @@ $ git gc
 $ git remote -v
 </pre>
 
+<p>
+Delete a remote branch
+</p>
+<pre>
+$ git push origin --delete &lt;branch name&gt;
+# or
+$ git push origin :&lt;branch name&gt;
+# if your branch name is the same as some tag name,
+# there will be an error like:
+# error: dst refspec v2.0 matches more than one.
+# Therefore, you have to provide the specified ref like:
+$ git push origin :refs/heads/v2.0
+</pre>
+
 
 <h2 id="toc_1.11">Useful Tips</h2>
 
