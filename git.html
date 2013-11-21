@@ -229,6 +229,15 @@ $ git filter-branch --tree-filter 'rm -f *~' -- --all
 </pre>
 
 <p>
+Obtain a file from another branch
+</p>
+<pre>
+$ git checkout &lt;branch&gt; -- &lt;file name&gt;
+# or (in case you want to rename the file)
+$ git show &lt;branch&gt;:&lt;path of file&gt; &gt; &lt;new file name&gt;
+</pre>
+
+<p>
 Overview of what has been changed 
 </p>
 <pre>
