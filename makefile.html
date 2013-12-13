@@ -37,6 +37,7 @@
 <li><a href="#toc_1">My Makefile Tips</a>
 <ul>
 <li><a href="#toc_1.1">Automatic Variables</a>
+<li><a href="#toc_1.2">File Name Functions</a>
 </ul>
 </ul>
 </div>
@@ -105,6 +106,34 @@ lib: dep1.o dep2.o
 all.tar: file1 file2
 	tar rf all.tar $?
 </pre>
+
+<p>
+Reference: 
+<a href="http://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables">http://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables</a>
+</p>
+
+<h2 id="toc_1.2">File Name Functions</h2>
+
+<ul>
+<li>
+$(addprefix prefix,names...)
+
+</ul>
+
+<p>
+e.g.
+</p>
+<pre>
+OBJECTS = a.o b.o c.o
+OBJDIR = ../bin
+OBJPROG = $(addprefix $(OBJDIR)/, $(OBJECTS))
+# generates ../bin/a.o ../bin/b.o ../bin/c.o
+</pre>
+
+<p>
+Reference: 
+<a href="http://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html">http://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html</a>
+</p>
 
 </section>
 <aside id="sidebar">
