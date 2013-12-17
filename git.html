@@ -298,6 +298,16 @@ $ git update-index --assume-unchanged Makefile
 $ git push
 </pre>
 
+<p>
+If you want to commit the changes after deleting lots of files without using <code>git rm</code>:
+</p>
+<pre>
+# easier `git` way
+$ git add -u
+# or more exactly
+$ git status | grep deleted | awk '{print $3}' | xargs git rm
+</pre>
+
 </section>
 <aside id="sidebar">
 <p>Wiki maintained by <a href="https://github.com/yszheda">yszheda</a></p>
