@@ -36,11 +36,12 @@
 <ul>
 <li><a href="#toc_1">od: octal dump</a>
 <ul>
-<li><a href="#toc_1.1">Commonly Usage</a>
+<li><a href="#toc_1.1">Common Usage</a>
+<li><a href="#toc_1.2">Samples</a>
 </ul>
 </ul>
 </div>
-<h2 id="toc_1.1">Commonly Usage</h2>
+<h2 id="toc_1.1">Common Usage</h2>
 
 <pre>
 # -t = --format
@@ -109,6 +110,42 @@ $ diff -u &lt;(od -An --string /etc/ld.so.cache) &lt;(strings /etc/ld.so.cache)
  libz.so.1
  /lib64/libz.so.1
  libz.so
+</pre>
+<p>
+The reason why ``<code>od</code>`` doesn't show "glibc-ld.so.cache1.1" is that behind the string is \03:
+</p>
+<pre>
+$ od -Ax -tx1z /etc/ld.so.cache | grep -A2 glibc-ld
+002a40 67 6c 69 62 63 2d 6c 64 2e 73 6f 2e 63 61 63 68  &gt;glibc-ld.so.cach&lt;
+002a50 65 31 2e 31 8a 03 00 00 aa a3 00 00 00 00 00 00  &gt;e1.1............&lt;
+002a60 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  &gt;................&lt;
+</pre>
+
+<p>
+set the max string length:
+</p>
+<pre>
+# fail on CentOS-6
+$ od -Ax -s12 /etc/ld.so.cache
+</pre>
+
+<h2 id="toc_1.2">Samples</h2>
+<p>
+Convert a binary file into an array in a C program:
+</p>
+<pre>
+#!/bin/bash
+# $0 objname &lt; in &gt; out
+objname=${1:-objname}
+# the sed script:
+# show each byte as 0xNN
+# delete ',' in each line
+od -A n -v -t x1 | sed -e '1i\
+const unsigned char '$objname'[] = {
+s/\([0-9a-f][0-9a-f]\) */0x\1,/g
+$s/,$//
+$a\
+};
 </pre>
 
 </section>
