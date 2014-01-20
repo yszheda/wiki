@@ -70,6 +70,28 @@ $ od -t x1c -A x /etc/ld.so.cache | head -5
 </pre>
 
 <pre>
+-v, --output-duplicates
+              do not use * to mark line suppression
+</pre>
+
+<p>
+Print strings:
+</p>
+<pre>
+# show hexadecimal offsets
+$ od -Ax --string /etc/ld.so.cache | head -5
+000000 ld.so-1.7.0
+007f60 libz.so.1
+007f6a /lib64/libz.so.1
+007f7b libz.so
+007f83 /usr/lib64/libz.so
+# do not show offsets
+$ od -An --string /etc/ld.so.cache | head -5
+ld.so-1.7.0
+libz.so.1
+/lib64/libz.so.1
+libz.so
+/usr/lib64/libz.so
 
 </pre>
 
