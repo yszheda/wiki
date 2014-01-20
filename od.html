@@ -92,7 +92,23 @@ libz.so.1
 /lib64/libz.so.1
 libz.so
 /usr/lib64/libz.so
+</pre>
 
+<p>
+The differences between ``<code>od</code>`<code> and </code>`<code>strings</code>``:
+``<code>od</code>`` only shows the strings end with the '\0' symbol.
+e.g.
+</p>
+<pre>
+$ diff -u &lt;(od -An --string /etc/ld.so.cache) &lt;(strings /etc/ld.so.cache)
+--- /dev/fd/63  2014-01-20 20:52:48.985337633 +0800
++++ /dev/fd/62  2014-01-20 20:52:48.985337633 +0800
+@@ -1,4 +1,5 @@
+ ld.so-1.7.0
++glibc-ld.so.cache1.1
+ libz.so.1
+ /lib64/libz.so.1
+ libz.so
 </pre>
 
 </section>
