@@ -130,7 +130,20 @@ $ cc -o baz baz.o -lfoo
 
 <h3 id="toc_1.2.2">Search "NEEDED"</h3>
 <pre>
-
+# use objdump
+$ objdump -p /bin/ls | grep -C1 NEEDED
+Dynamic Section:
+  NEEDED               libcap.so.2
+  NEEDED               libacl.so.1
+  NEEDED               libc.so.6
+  INIT                 0x0000000000402180
+# or use readelf
+$ readelf -d /bin/ls | grep -C1 NEEDED
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libcap.so.2]
+ 0x0000000000000001 (NEEDED)             Shared library: [libacl.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000c (INIT)               0x402180
 </pre>
 
 </section>
