@@ -38,13 +38,18 @@
 <ul>
 <li><a href="#toc_1.1">static library</a>
 <ul>
-<li><a href="#toc_1.1.1">ar Usage</a>
+<li><a href="#toc_1.1.1">Introduction</a>
+<li><a href="#toc_1.1.2">ar Usage</a>
 </ul>
 <li><a href="#toc_1.2">shared library</a>
+<ul>
+<li><a href="#toc_1.2.1">Introduction</a>
+</ul>
 </ul>
 </ul>
 </div>
 <h2 id="toc_1.1">static library</h2>
+<h3 id="toc_1.1.1">Introduction</h3>
 <p>
 Create archive file (*.a):
 </p>
@@ -68,7 +73,10 @@ Link:
 $ cc -o baz baz.o -lfoo
 </pre>
 
-<h3 id="toc_1.1.1">ar Usage</h3>
+<p>
+可执行文件会包含静态链接库的object file的副本，因此执行时不需要该静态链接库。
+</p>
+<h3 id="toc_1.1.2">ar Usage</h3>
 <p>
 打包（类似tar）:
 </p>
@@ -97,10 +105,12 @@ $ ar tv libhoge.a
 $ ar xv libhoge.a
 </pre>
 <h2 id="toc_1.2">shared library</h2>
+<h3 id="toc_1.2.1">Introduction</h3>
 <p>
 Create shared library:
 </p>
 <pre>
+# PIC = Position Independent Code
 $ cc -fPIC -c -o foo.o foo.c
 $ cc -fPIC -c -o bar.o bar.c
 $ cc -shared -W1,-soname,libfoo.so.0 -o libfoo.so foo.o bar.o
@@ -112,6 +122,10 @@ Link:
 <pre>
 $ cc -o baz baz.o -lfoo
 </pre>
+
+<p>
+链接时只会把共享链接库的SONAME登记在可执行文件的NEEDED中，可执行文件在被执行时，动态链接器ld.so会根据NEEDED来找到必要的共享链接库（库文件必须存在！）。
+</p>
 
 </section>
 <aside id="sidebar">
