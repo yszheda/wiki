@@ -15,7 +15,7 @@
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<title>index</title>
+<title>addr2line</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
@@ -31,118 +31,35 @@
 <div class="inner clearfix">
 <section id="main-content">
 
-<h1 id="toc_1">My tips</h1>
-
-<h2 id="toc_1.1">Technical Notes</h2>
-<ol>
-<li>
-<a href="git.html">git</a>
-
-<li>
-<a href="makefile.html">GNU Makefile</a>
-
-<li>
-<a href="vimdiff.html">vimdiff</a>
-
-<li>
-Binary Hacks
-
-<ol>
-<li>
-Object File Hacks
-
-<ol>
-<li>
-<a href="od.html">od</a> 
-
-<li>
-<a href="library.html">链接库</a> 
-
-<li>
-<a href="objdump.html">objdump</a> 
-
-<li>
-<a href="objcopy.html">objcopy</a> 
-
-<li>
-<a href="addr2line.html">addr2line</a> 
-
-</ol>
-</ol>
-</ol>
-
-
-<h1 id="toc_2">VimWiki test file</h1>
-
+<h1 id="toc_1">addr2line</h1>
 <p>
-<strong>bold</strong> -- bold 
-<em>italic</em> -- italic 
+Example:
+In addr2line.c
 </p>
+<pre>
+#include &lt;stdio.h&gt;
+void func()
+{
+}
+int main()
+{
+	printf("%p\n", &amp;func);
+	return 0;
+}
+</pre>
 
-<p>
-<a href="wiki link.html">wiki link</a> -- link with spaces
-<a href="wiki link.html">description</a> -- link with description
-</p>
-
-<p>
-Lists:
-</p>
-<ul>
-<li>
-bullet list item 1
-
-<ul>
-<li>
-bullet list item 2
-
-<li>
-bullet list item 3
-
-<ul>
-<li>
-bullet list item 4
-
-<li>
-bullet list item 5
-
-</ul>
-</ul>
-<li>
-bullet list item 6
-
-<li>
-bullet list item 7
-
-<ul>
-<li>
-bullet list item 8
-
-<li>
-bullet list item 9
-
-</ul>
-</ul>
-
-<ol>
-<li>
-numbered list item 1
-
-<li>
-numbered list item 2
-
-<ol>
-<li>
-numbered list item 3
-
-<li>
-numbered list item 4
-
-</ol>
-</ol>
-
-<h1 id="toc_3">Header1</h1>
-<h2 id="toc_3.1">Header2</h2>
-<h3 id="toc_3.1.1">Header3</h3>
+<pre>
+$ gcc -g addr2line.c 
+$ ./a.out 
+0x4004fd
+# show the line number in the source code
+$ addr2line -e a.out 0x4004fd
+/tmp/addr2line.c:3
+# show the function name
+$ addr2line -f -e a.out 0x4004fd
+func
+/tmp/addr2line.c:3
+</pre>
 
 </section>
 <aside id="sidebar">
