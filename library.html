@@ -50,6 +50,7 @@
 <li><a href="#toc_1.2.3.1">ldd</a>
 <li><a href="#toc_1.2.3.2">LD_TRACE_LOADED_OBJECTS</a>
 </ul>
+<li><a href="#toc_1.2.4">PIC</a>
 </ul>
 </ul>
 </ul>
@@ -206,6 +207,29 @@ $ LD_TRACE_LOADED_OBJECTS=1 /lib/librt.so.1
 <pre>
 $ LD_TRACE_LOADED_OBJECTS=1 /lib/ld-linux.so.2 /lib/librt.so.1 
 </pre>
+
+<h3 id="toc_1.2.4">PIC</h3>
+
+<pre>
+$ gcc -fpic
+$ gcc -fPIC 
+</pre>
+
+<p>
+-fpic可以产生的GOT (Global Offset Table)大小受到处理器的限制，而-fPIC则任何处理器通用（在x86下二者相同）。
+</p>
+
+<p>
+PIC vs non-PIC
+</p>
+<ol>
+<li>
+PIC版的function call经由PLT (Procedure Linkage Table)
+
+</ol>
+<p>
+#
+</p>
 
 </section>
 <aside id="sidebar">
