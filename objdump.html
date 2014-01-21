@@ -37,6 +37,7 @@
 <li><a href="#toc_1">objdump</a>
 <ul>
 <li><a href="#toc_1.1">show content of binary</a>
+<li><a href="#toc_1.2">disassemble</a>
 </ul>
 </ul>
 </div>
@@ -93,6 +94,59 @@ Specify the address range:
 </p>
 <pre>
 $ objdump -s --start-address=&lt;start addr&gt; --stop-address=&lt;stop addr&gt; &lt;binary&gt;
+</pre>
+
+<h2 id="toc_1.2">disassemble</h2>
+
+<pre>
+$ objdump -d
+# or
+$ objdump --disassemble
+</pre>
+
+<p>
+反编译所有section：
+</p>
+<pre>
+$ objdump -D
+# or
+$ objdump --disassemble-all
+</pre>
+
+<p>
+不显示汇编指令的byte值：
+</p>
+<pre>
+--no-show-raw-insn
+</pre>
+
+<p>
+加上汇编指令所在的相对地址，如&lt;main+0x1&gt;：
+</p>
+<pre>
+--prefix-address
+# need add --show-raw-insn to show the binary value
+</pre>
+
+<p>
+指定section：
+</p>
+<pre>
+$ objdump -d -j .init a.o
+</pre>
+
+<p>
+显示源代码行数（该object file必须包含debug info）：
+</p>
+<pre>
+[-l|--line-numbers]
+</pre>
+
+<p>
+显示汇编代码对应的源代码（源代码需要在编译时的路径）：
+</p>
+<pre>
+[-S|--source]
 </pre>
 
 </section>
