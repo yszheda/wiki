@@ -15,7 +15,7 @@
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<title>index</title>
+<title>objcopy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
@@ -31,115 +31,26 @@
 <div class="inner clearfix">
 <section id="main-content">
 
-<h1 id="toc_1">My tips</h1>
-
-<h2 id="toc_1.1">Technical Notes</h2>
-<ol>
-<li>
-<a href="git.html">git</a>
-
-<li>
-<a href="makefile.html">GNU Makefile</a>
-
-<li>
-<a href="vimdiff.html">vimdiff</a>
-
-<li>
-Binary Hacks
-
-<ol>
-<li>
-Object File Hacks
-
-<ol>
-<li>
-<a href="od.html">od</a> 
-
-<li>
-<a href="library.html">链接库</a> 
-
-<li>
-<a href="objdump.html">objdump</a> 
-
-<li>
-<a href="objcopy.html">objcopy</a> 
-
-</ol>
-</ol>
-</ol>
-
-
-<h1 id="toc_2">VimWiki test file</h1>
+<h1 id="toc_1">objcopy</h1>
+<p>
+e.g.
+Convert a jpg into an ELF32 object
+</p>
+<pre>
+$ objcopy -I binary -O elf32-i386 -B i386 foo.jpg foo.o
+</pre>
 
 <p>
-<strong>bold</strong> -- bold 
-<em>italic</em> -- italic 
+In the C program which links with foo.o
 </p>
-
-<p>
-<a href="wiki link.html">wiki link</a> -- link with spaces
-<a href="wiki link.html">description</a> -- link with description
-</p>
-
-<p>
-Lists:
-</p>
-<ul>
-<li>
-bullet list item 1
-
-<ul>
-<li>
-bullet list item 2
-
-<li>
-bullet list item 3
-
-<ul>
-<li>
-bullet list item 4
-
-<li>
-bullet list item 5
-
-</ul>
-</ul>
-<li>
-bullet list item 6
-
-<li>
-bullet list item 7
-
-<ul>
-<li>
-bullet list item 8
-
-<li>
-bullet list item 9
-
-</ul>
-</ul>
-
-<ol>
-<li>
-numbered list item 1
-
-<li>
-numbered list item 2
-
-<ol>
-<li>
-numbered list item 3
-
-<li>
-numbered list item 4
-
-</ol>
-</ol>
-
-<h1 id="toc_3">Header1</h1>
-<h2 id="toc_3.1">Header2</h2>
-<h3 id="toc_3.1.1">Header3</h3>
+<pre>
+extern char _binary_foo_jpg_start[];
+extern char _binary_foo_jpg_end[];
+extern char _binary_foo_jpg_size[];
+const char *start = _binary_foo_jpg_start;
+const char *end = _binary_foo_jpg_end;
+int size = (int) _binary_foo_jpg_size;
+</pre>
 
 </section>
 <aside id="sidebar">
