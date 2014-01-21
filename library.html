@@ -37,6 +37,9 @@
 <li><a href="#toc_1">library</a>
 <ul>
 <li><a href="#toc_1.1">static library</a>
+<ul>
+<li><a href="#toc_1.1.1">ar Usage</a>
+</ul>
 <li><a href="#toc_1.2">shared library</a>
 </ul>
 </ul>
@@ -65,6 +68,34 @@ Link:
 $ cc -o baz baz.o -lfoo
 </pre>
 
+<h3 id="toc_1.1.1">ar Usage</h3>
+<p>
+打包（类似tar）:
+</p>
+<pre>
+# ar options:
+# r: 加入新文件或取代现有文件
+# c: libhoge.a不存在时不显示警告
+# u: 根据时间戳保留最新文件
+# s: 仿照ranlib为打包的文件建立索引
+$ ar rcus libhoge.a foo.o bar.o baz.o
+</pre>
+
+<p>
+浏览打包文件:
+</p>
+<pre>
+# t: 列出打包内容
+# v: 显示详细资讯
+$ ar tv libhoge.a
+</pre>
+
+<p>
+解开打包文件：
+</p>
+<pre>
+$ ar xv libhoge.a
+</pre>
 <h2 id="toc_1.2">shared library</h2>
 <p>
 Create shared library:
