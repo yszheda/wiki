@@ -45,6 +45,11 @@
 <ul>
 <li><a href="#toc_1.2.1">Introduction</a>
 <li><a href="#toc_1.2.2">Search "NEEDED"</a>
+<li><a href="#toc_1.2.3">Dependencies</a>
+<ul>
+<li><a href="#toc_1.2.3.1">ldd</a>
+<li><a href="#toc_1.2.3.2">LD_TRACE_LOADED_OBJECTS</a>
+</ul>
 </ul>
 </ul>
 </ul>
@@ -144,6 +149,39 @@ $ readelf -d /bin/ls | grep -C1 NEEDED
  0x0000000000000001 (NEEDED)             Shared library: [libacl.so.1]
  0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
  0x000000000000000c (INIT)               0x402180
+</pre>
+
+<h3 id="toc_1.2.3">Dependencies</h3>
+<h4 id="toc_1.2.3.1">ldd</h4>
+<p>
+可执行文件：
+</p>
+<pre>
+$ ldd /bin/ls
+        linux-vdso.so.1 (0x00007fff995fe000)
+        libcap.so.2 =&gt; /usr/lib/libcap.so.2 (0x00007f678d4a3000)
+        libacl.so.1 =&gt; /usr/lib/libacl.so.1 (0x00007f678d29a000)
+        libc.so.6 =&gt; /usr/lib/libc.so.6 (0x00007f678cef0000)
+        libattr.so.1 =&gt; /usr/lib/libattr.so.1 (0x00007f678cceb000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f678d6a7000)
+</pre>
+<p>
+共享链接库：
+</p>
+<pre>
+$ ldd /lib/librt.so.1 
+        linux-vdso.so.1 (0x00007fff649fe000)
+        libpthread.so.0 =&gt; /usr/lib/libpthread.so.0 (0x00007f65e810e000)
+        libc.so.6 =&gt; /usr/lib/libc.so.6 (0x00007f65e7d64000)
+        /usr/lib/ld-linux-x86-64.so.2 (0x00007f65e832b000)
+</pre>
+
+<h4 id="toc_1.2.3.2">LD_TRACE_LOADED_OBJECTS</h4>
+<p>
+可执行文件：
+</p>
+<pre>
+
 </pre>
 
 </section>
