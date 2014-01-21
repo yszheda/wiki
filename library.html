@@ -222,14 +222,23 @@ $ gcc -fPIC
 <p>
 PIC vs non-PIC
 </p>
-<ol>
+<ul>
 <li>
-PIC版的function call经由PLT (Procedure Linkage Table)
+PIC版的function call经由PLT (Procedure Linkage Table)。
 
-</ol>
-<p>
-#
-</p>
+<li>
+两者的共享链接库，用readelf查看可以发现：non-PIC版需要TEXTREL（text之内需要重定位），且RELCOUNT（定位数量）比PIC版多。（若要使PIC版的RELCOUNT变为0，需要在执行gcc时指定-nostartfiles。）
+
+<li>
+non-PIC版执行时需要花更多时间重定位。
+
+<li>
+non-PIC版在载入text segment之内需要重定位的page时会引发copy on write，进而使它无法和其他process共用text segment，丧失使用shared library的优势。
+
+<li>
+non-PIC的共享链接库的代码段.text比PIC版小，但重定位需要的.rel.dyn占了很大空间。
+
+</ul>
 
 </section>
 <aside id="sidebar">
