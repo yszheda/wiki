@@ -44,6 +44,7 @@
 <li><a href="#toc_1.2">shared library</a>
 <ul>
 <li><a href="#toc_1.2.1">Introduction</a>
+<li><a href="#toc_1.2.2">Search "NEEDED"</a>
 </ul>
 </ul>
 </ul>
@@ -126,6 +127,11 @@ $ cc -o baz baz.o -lfoo
 <p>
 链接时只会把共享链接库的SONAME登记在可执行文件的NEEDED中，可执行文件在被执行时，动态链接器ld.so会根据NEEDED来找到必要的共享链接库（库文件必须存在！）。
 </p>
+
+<h3 id="toc_1.2.2">Search "NEEDED"</h3>
+<pre>
+
+</pre>
 
 </section>
 <aside id="sidebar">
