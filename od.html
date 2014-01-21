@@ -16,7 +16,7 @@
 <![endif]-->
 
 <title>od</title>
-<meta http-equiv="Content-Type" content="text/html; charset=cp950">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 <header>
@@ -67,9 +67,11 @@ $ od -t x1c -A x /etc/ld.so.cache | head -5
 000010  03  03  00  00  20  55  00  00  2a  55  00  00  03  03  00  00
        003 003  \0  \0       U  \0  \0   *   U  \0  \0 003 003  \0  \0
 000020  3b  55  00  00  43  55  00  00  03  03  00  00  56  55  00  00
-
 </pre>
 
+<p>
+显示连续的00：
+</p>
 <pre>
 -v, --output-duplicates
               do not use * to mark line suppression
@@ -119,6 +121,38 @@ $ od -Ax -tx1z /etc/ld.so.cache | grep -A2 glibc-ld
 002a40 67 6c 69 62 63 2d 6c 64 2e 73 6f 2e 63 61 63 68  &gt;glibc-ld.so.cach&lt;
 002a50 65 31 2e 31 8a 03 00 00 aa a3 00 00 00 00 00 00  &gt;e1.1............&lt;
 002a60 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  &gt;................&lt;
+</pre>
+
+<p>
+显示ELF的string table:
+</p>
+<pre>
+# 首先查看section header信息：
+# -S --section-headers
+# 命令结果：
+# offset=0x0001a62c
+# size=0xf8
+$ readelf -S /bin/ls | grep -A1 .shstrtab
+  [27] .shstrtab         STRTAB           0000000000000000  0001a62c
+       00000000000000f8  0000000000000000           0     0     1
+$ od --skip-bytes=0x1a62c --read-bytes=0xf8 -t x1z /bin/ls
+0323054 00 2e 73 68 73 74 72 74 61 62 00 2e 69 6e 74 65  &gt;..shstrtab..inte&lt;
+0323074 72 70 00 2e 6e 6f 74 65 2e 41 42 49 2d 74 61 67  &gt;rp..note.ABI-tag&lt;
+0323114 00 2e 6e 6f 74 65 2e 67 6e 75 2e 62 75 69 6c 64  &gt;..note.gnu.build&lt;
+0323134 2d 69 64 00 2e 67 6e 75 2e 68 61 73 68 00 2e 64  &gt;-id..gnu.hash..d&lt;
+0323154 79 6e 73 79 6d 00 2e 64 79 6e 73 74 72 00 2e 67  &gt;ynsym..dynstr..g&lt;
+0323174 6e 75 2e 76 65 72 73 69 6f 6e 00 2e 67 6e 75 2e  &gt;nu.version..gnu.&lt;
+0323214 76 65 72 73 69 6f 6e 5f 72 00 2e 72 65 6c 61 2e  &gt;version_r..rela.&lt;
+0323234 64 79 6e 00 2e 72 65 6c 61 2e 70 6c 74 00 2e 69  &gt;dyn..rela.plt..i&lt;
+0323254 6e 69 74 00 2e 74 65 78 74 00 2e 66 69 6e 69 00  &gt;nit..text..fini.&lt;
+0323274 2e 72 6f 64 61 74 61 00 2e 65 68 5f 66 72 61 6d  &gt;.rodata..eh_fram&lt;
+0323314 65 5f 68 64 72 00 2e 65 68 5f 66 72 61 6d 65 00  &gt;e_hdr..eh_frame.&lt;
+0323334 2e 69 6e 69 74 5f 61 72 72 61 79 00 2e 66 69 6e  &gt;.init_array..fin&lt;
+0323354 69 5f 61 72 72 61 79 00 2e 6a 63 72 00 2e 64 79  &gt;i_array..jcr..dy&lt;
+0323374 6e 61 6d 69 63 00 2e 67 6f 74 00 2e 67 6f 74 2e  &gt;namic..got..got.&lt;
+0323414 70 6c 74 00 2e 64 61 74 61 00 2e 62 73 73 00 2e  &gt;plt..data..bss..&lt;
+0323434 63 6f 6d 6d 65 6e 74 00                          &gt;comment.&lt;
+0323444
 </pre>
 
 <p>
