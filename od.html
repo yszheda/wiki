@@ -98,8 +98,8 @@ libz.so
 </pre>
 
 <p>
-The differences between ``<code>od</code>`<code> and </code>`<code>strings</code>``:
-``<code>od</code>`` only shows the strings end with the '\0' symbol.
+The differences between <code>od</code> and <code>strings</code>:
+<code>od</code> only shows the strings end with the '\0' symbol.
 e.g.
 </p>
 <pre>
@@ -114,7 +114,7 @@ $ diff -u &lt;(od -An --string /etc/ld.so.cache) &lt;(strings /etc/ld.so.cache)
  libz.so
 </pre>
 <p>
-The reason why ``<code>od</code>`` doesn't show "glibc-ld.so.cache1.1" is that behind the string is \03:
+The reason why <code>od</code> doesn't show "glibc-ld.so.cache1.1" is that behind the string is \03:
 </p>
 <pre>
 $ od -Ax -tx1z /etc/ld.so.cache | grep -A2 glibc-ld
