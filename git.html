@@ -308,6 +308,15 @@ $ git add -u
 $ git status | grep deleted | awk '{print $3}' | xargs git rm
 </pre>
 
+<p>
+Change commit date(修复因系统时间出错而导致的提交时间问题，也可以用来刷Github的streak~XD):
+</p>
+<pre>
+$ git commit --amend --date=&lt;new date&gt;
+# e.g.
+$ git commit --amend --date="$(date -R)"
+</pre>
+
 </section>
 <aside id="sidebar">
 <p>Wiki maintained by <a href="https://github.com/yszheda">yszheda</a></p>
