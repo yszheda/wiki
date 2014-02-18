@@ -37,6 +37,7 @@
 <li><a href="#toc_1">nm</a>
 <ul>
 <li><a href="#toc_1.1">Common Usage</a>
+<li><a href="#toc_1.2">Symbol Class</a>
 </ul>
 </ul>
 </div>
@@ -93,6 +94,98 @@ show dynamic symbols
 $ nm -D a.out
 $ nm --dynamic a.out
 </pre>
+
+<h2 id="toc_1.2">Symbol Class</h2>
+<table>
+<tr>
+<td>
+section
+</td>
+<td>
+symbol class
+</td>
+<td>
+scope
+</td>
+</tr>
+<tr>
+<td>
+text
+</td>
+<td>
+T
+</td>
+<td>
+global
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+t
+</td>
+<td>
+local
+</td>
+</tr>
+<tr>
+<td>
+data
+</td>
+<td>
+D
+</td>
+<td>
+global
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+d
+</td>
+<td>
+local
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+G
+</td>
+<td>
+global, for small objects (有些环境下使用近距离symbol的效率更高)
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+g
+</td>
+<td>
+local, for small objects (有些环境下使用近距离symbol的效率更高)
+</td>
+</tr>
+<tr>
+<td>
+read-only
+</td>
+<td>
+R
+</td>
+<td>
+global
+</td>
+</tr>
+</table>
 
 </section>
 <aside id="sidebar">
