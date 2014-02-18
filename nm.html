@@ -54,11 +54,14 @@ $ nm --reverse-sort a.o
 sort by size
 </p>
 <pre>
+# output format: &lt;symbol size&gt;, &lt;symbol class&gt;, &lt;symbol name&gt;
+# &lt;symbol size&gt; means the size of the object which the symbol points to
 # will not ouput undefined symbols
 $ nm --size-sort a.o
 $ nm --size-sort -r a.o
-# include undefined symbols
 $ nm --size-sort -S a.o
+# include &lt;symbol value&gt; in the output
+$ nm --size-sort
 </pre>
 
 </section>
