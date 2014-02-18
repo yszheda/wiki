@@ -15,7 +15,7 @@
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<title>nm</title>
+<a href="http://yszheda.github.io/wiki"><title>nm</title></a>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
@@ -38,6 +38,7 @@
 <ul>
 <li><a href="#toc_1.1">Common Usage</a>
 <li><a href="#toc_1.2">Symbol Class</a>
+<li><a href="#toc_1.3">demangle</a>
 </ul>
 </ul>
 </div>
@@ -395,6 +396,16 @@ unknown
 </td>
 </tr>
 </table>
+
+<h2 id="toc_1.3">demangle</h2>
+<pre>
+$ nm foo.o
+00000000 T _Z3fooi
+$ nm foo.o | c++filt
+00000000 T foo(int)
+$ nm --demangle foo.o
+00000000 T foo(int)
+</pre>
 
 </section>
 <aside id="sidebar">
