@@ -43,7 +43,7 @@
 <h2 id="toc_1.1">Common Usage</h2>
 
 <pre>
-# output: symbol value, symbol class, symbol name
+# output format: &lt;symbol value&gt;, &lt;symbol class&gt;, &lt;symbol name&gt;
 $ nm a.o
 # sort in a reversed order
 $ nm -r a.o
@@ -54,8 +54,11 @@ $ nm --reverse-sort a.o
 sort by size
 </p>
 <pre>
+# will not ouput undefined symbols
 $ nm --size-sort a.o
 $ nm --size-sort -r a.o
+# include undefined symbols
+$ nm --size-sort -S a.o
 </pre>
 
 </section>
