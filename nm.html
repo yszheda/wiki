@@ -43,11 +43,17 @@
 <h2 id="toc_1.1">Common Usage</h2>
 
 <pre>
+# output: symbol value, symbol class, symbol name
 $ nm a.o
 # reverse sort
 $ nm -r a.o
 $ nm --reverse-sort a.o
-# sort by size
+</pre>
+
+<p>
+sort by size
+</p>
+<pre>
 $ nm --size-sort a.o
 $ nm --size-sort -r a.o
 </pre>
