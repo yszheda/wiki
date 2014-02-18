@@ -61,7 +61,7 @@ sort by size
 <pre>
 # output format: &lt;symbol size&gt;, &lt;symbol class&gt;, &lt;symbol name&gt;
 # &lt;symbol size&gt; means the size of the object which the symbol points to
-# will not ouput undefined symbols
+# will not output undefined symbols
 $ nm --size-sort a.o
 $ nm --size-sort -r a.o
 # include &lt;symbol value&gt; in the output
@@ -82,6 +82,14 @@ $ nm -f posix a.o
 # [-A | -o | --print-file-name]
 # show the source file names of symbols when processing multiple object files
 $ nm -A *.o | grep &lt;symbol&gt;
+</pre>
+
+<p>
+show dynamic symbols
+</p>
+<pre>
+$ nm -D a.out
+$ nm --dynamic a.out
 </pre>
 
 </section>
