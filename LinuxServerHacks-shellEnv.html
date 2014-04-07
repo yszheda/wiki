@@ -39,6 +39,7 @@
 <li><a href="#toc_1.1">PS1</a>
 <li><a href="#toc_1.2">PROMPT_COMMAND</a>
 <li><a href="#toc_1.3">ignore consecutive ^D hits</a>
+<li><a href="#toc_1.4">clear out history quickly</a>
 </ul>
 </ul>
 </div>
@@ -62,6 +63,12 @@ $ export PROMPT_COMMAND='echo -ne "\033[0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
 <pre>
 $ export IGNOREEOF=2
+</pre>
+
+<h2 id="toc_1.4">clear out history quickly</h2>
+
+<pre>
+$ export HISTSIZE=0
 </pre>
 
 </section>
