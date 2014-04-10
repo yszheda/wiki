@@ -16,7 +16,7 @@
 <![endif]-->
 
 <title>LinuxServerHacks-procps</title>
-<meta http-equiv="Content-Type" content="text/html; charset=cp950">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 <header>
@@ -37,7 +37,8 @@
 <li><a href="#toc_1">Manipulating Processes Symbolically with procps</a>
 <ul>
 <li><a href="#toc_1.1">skill</a>
-<li><a href="#toc_1.2">snice</a>
+<li><a href="#toc_1.2">pkill</a>
+<li><a href="#toc_1.3">snice</a>
 </ul>
 </ul>
 </div>
@@ -55,7 +56,18 @@ $ skill -STOP pts/2
 $ skill -CONT pts/2
 </pre>
 
-<h2 id="toc_1.2">snice</h2>
+<h2 id="toc_1.2">pkill</h2>
+<p>
+more formal paramters than ``<code>skill</code>``
+</p>
+
+<pre>
+$ skill -KILL rob bash
+# is equivalent to
+$ pkill -KILL -u rob bash
+</pre>
+
+<h2 id="toc_1.3">snice</h2>
 <p>
 renice processes.
 </p>
