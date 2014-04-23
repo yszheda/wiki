@@ -63,7 +63,11 @@ References:
 Vim interprets numerals with a leading zero to be in octal notation rather than in decimal.
 For example:
 <code>&lt;C-a&gt;</code> on <code>007</code>, you will obtain <code>010</code> rather than <code>008</code>.
+To disable this feature, add the following line to your <code>vimrc</code>:
 </p>
+<pre>
+set nrfomats=
+</pre>
 
 </section>
 <aside id="sidebar">
