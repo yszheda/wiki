@@ -48,8 +48,9 @@ p {
 
 strong, b {
 /*  color: #222; */
-  color: #eef;
-  font-weight: 700;
+  /*color: #eef;*/
+  /*font-weight: 700;*/
+  font-weight: bold;
 }
 
 em, i {
