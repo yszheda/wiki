@@ -73,8 +73,8 @@ body {
   font-size: 15px;
   line-height: 1.5; 
   background: #fafafa url(../images/body-bg.jpg) 0 0 repeat;
-  font-family: 'Computer Modern', 'Helvetica Neue', Helvetica, Arial, serif;
-  font-weight: 400;
+  font-family: 'Helvetica Neue', Helvetica, Arial, serif;
+  /*font-weight: 400;*/
   color: #666;
 }
 
