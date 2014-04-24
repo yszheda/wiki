@@ -47,6 +47,24 @@
 
 </ul>
 
+<p>
+Vim interprets numerals with a leading zero to be in octal notation rather than in decimal.
+</p>
+
+<p>
+For example:
+<code>&lt;C-a&gt;</code> on <code>007</code>, you will obtain <code>010</code> rather than <code>008</code>.
+</p>
+
+<p>
+To disable this feature, add the following line to your <code>vimrc</code>:
+</p>
+<pre>
+set nrfomats=
+</pre>
+
+
+
 <h2 id="toc_1.1">References:</h2>
 <pre>
 # If you open the file in vim,
@@ -58,19 +76,6 @@
 # If you open the file in vim,
 # then you can \"ayy@a the next line to execute the vim command: 
 :h ctrl-a
-</pre>
-
-
-
-
-<p>
-Vim interprets numerals with a leading zero to be in octal notation rather than in decimal.
-For example:
-<code>&lt;C-a&gt;</code> on <code>007</code>, you will obtain <code>010</code> rather than <code>008</code>.
-To disable this feature, add the following line to your <code>vimrc</code>:
-</p>
-<pre>
-set nrfomats=
 </pre>
 
 </section>
