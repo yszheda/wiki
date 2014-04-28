@@ -9,6 +9,16 @@ html {
   background: #6c7989 linear-gradient(#6c7989, #434b55) fixed;
 }
 
+body {
+  padding: 50px 0;
+  margin: 0;
+  font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  /*color: #555;*/
+  /*font-weight: 300;*/
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAYAAABNChwpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAAAUdEVYdENyZWF0aW9uIFRpbWUAMy82LzEygrTcTAAAAFRJREFUSIljfPDggZRf5RIGGNjUHsNATz6jXmSL1Kb2GLiAX+USBnrymRgGGDCORgFmoNAXjEbBaBSMRsFoFIxGwWgUjEbBaBSMRsFoFIxGwWgUAABYNujumib3wAAAAABJRU5ErkJggg==') fixed;
+}
+
 strong {
 /*  color: #222; */
   /*color: #eef;*/
@@ -18,15 +28,6 @@ strong {
 
 em {
   font-style: italic;
-}
-
-body {
-  padding: 50px 0;
-  margin: 0;
-  font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  /*color: #555;*/
-  /*font-weight: 300;*/
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAYAAABNChwpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAAAUdEVYdENyZWF0aW9uIFRpbWUAMy82LzEygrTcTAAAAFRJREFUSIljfPDggZRf5RIGGNjUHsNATz6jXmSL1Kb2GLiAX+USBnrymRgGGDCORgFmoNAXjEbBaBSMRsFoFIxGwWgUjEbBaBSMRsFoFIxGwWgUAABYNujumib3wAAAAABJRU5ErkJggg==') fixed;
 }
 
 .wrapper {
@@ -55,6 +56,17 @@ a {
 p {
   margin: 0 0 20px;
   padding: 0;
+}
+
+p strong {
+/*  color: #222; */
+  /*color: #eef;*/
+  /*font-weight: 700;*/
+  font-weight: bold;
+}
+
+p em {
+  font-style: italic;
 }
 
 
