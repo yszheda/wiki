@@ -41,7 +41,7 @@
 <code>&lt;C-d&gt;</code>: reveal a list of possible completions.
 
 <li>
-<code>&lt;Tab&gt;</code>: completion
+<code>&lt;Tab&gt;</code>: scroll forward
 
 <li>
 <code>&lt;S-Tab&gt;</code>: scroll backward
@@ -69,6 +69,25 @@ Example:
 </pre>
 
 <h2 id="toc_1.2">Choosing from Multiple Matches</h2>
+
+<p>
+Custom the choosing behavior by tweaking the <code>wilemode</code> option:
+</p>
+<ul>
+<li>
+Bash:
+<pre>
+set wildmode=longest,list
+</pre>
+
+<li>
+Zsh:
+<pre>
+set wildmenu
+set wilemode=full
+</pre>
+
+</ul>
 
 </section>
 <aside id="sidebar">
