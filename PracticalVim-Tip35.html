@@ -212,10 +212,18 @@ Execute <code>{cmd}</code> in the shell and insert its standard input below the 
 </tr>
 <tr>
 <td>
-&nbsp;
+<code>:[range]write !{cmd}</code>
 </td>
 <td>
-&nbsp;
+Execute <code>{cmd}</code> in the shell with <code>[range]</code> lines as standard input
+</td>
+</tr>
+<tr>
+<td>
+<code>[range]!{filter}</code>
+</td>
+<td>
+Filter the specified <code>[range]</code> through external program <code>{filter}</code>
 </td>
 </tr>
 </table>
