@@ -32,6 +32,47 @@
 <section id="main-content">
 
 <h1 id="toc_1">Tip 36: Track Open Files with the Buffer List</h1>
+<p>
+<a href="PracticalVim.html">Return to the top: &lt;&lt;Practical Vim&gt;&gt;</a>
+</p>
+
+<h2 id="toc_1.1">Understand the Distinction Between Files and Buffers</h2>
+<ul>
+<li>
+buffer: in-memory representation of a file
+
+<li>
+Most Vim commands operate on buffers, but a few operate on files, including the <code>:write</code>, <code>:update</code> and <code>:saveas</code> commands.
+
+</ul>
+
+<h2 id="toc_1.2">Meet the Buffer List</h2>
+
+<h3 id="toc_1.2.1">References:</h3>
+<pre>
+# If you open the file in vim,
+# then you can \"ayy@a the next line to execute the vim command: 
+:h :!
+</pre>
+
+<ul>
+<li>
+<code>&lt;C-^&gt;</code>: toggle between the current and alternate files
+
+</ul>
+
+<h2 id="toc_1.3">Use the Buffer List</h2>
+<ul>
+<li>
+<code>:bprev</code>: move backward
+
+<li>
+<code>:bnext</code>: move forward
+
+<li>
+<code>:bfirst</code>/<code>:blast</code>: jump to the start/end of the list
+
+</ul>
 
 </section>
 <aside id="sidebar">
