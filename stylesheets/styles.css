@@ -267,7 +267,7 @@ blockquote {
     display: none;
 }
 
-div toc {
+.toc {
     display: block;
     overflow: auto;
     overflow-x: hidden;
@@ -294,13 +294,13 @@ div toc {
     z-index: 101;
     cursor: pointer;
 }
-div toc ul {
+.toc ul {
     margin: 0;
 }
-div toc li {
+.toc li {
     color: #eff;
 }
-div toc a {
+.toc a {
     color: #eff;
 }
 
