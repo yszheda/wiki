@@ -35,6 +35,7 @@
 <p>
 <a href="PracticalVim.html">Return to the top: &lt;&lt;Practical Vim&gt;&gt;</a>
 </p>
+
 <table>
 <tr>
 <td>
@@ -77,6 +78,21 @@ Write all modified buffers to disk
 </td>
 </tr>
 </table>
+
+<h2 id="toc_1.1">Enable the 'hidden' Setting Before Running <code>:argdo</code> or <code>:bufdo</code></h2>
+<ul>
+<li>
+If we enable the 'hidden' setting, then we can use the <code>:next</code>/<code>:bnext</code>/<code>:cnext</code> commands without a trailing bang.
+
+</ul>
+
+
+<h3 id="toc_1.1.1">References:</h3>
+<pre>
+# If you open the file in vim,
+# then you can \"ayy@a the next line to execute the vim command: 
+:h 'hidden'
+</pre>
 
 </section>
 <aside id="sidebar">
