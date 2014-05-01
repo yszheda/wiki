@@ -37,12 +37,40 @@
 <div class="toc">
 <ul>
 <li><a href="#toc_1">Tip 45: Save a File as the Super User</a>
+<ul>
+<li><a href="#toc_1.0.1">References</a>
+<li><a href="#toc_1.0.2">References</a>
+</ul>
+</ul>
 </ul>
 </div>
 </p>
 
 <pre>
 :w !sudo tee % &gt; /dev/null
+</pre>
+
+<ul>
+<li>
+<code>:write !{cmd}</code>: send the contents of the buffer as standard input to the specified <code>{cmd}</code>
+
+</ul>
+<h3 id="toc_1.0.1">References</h3>
+<pre>
+# If you open the file in vim,
+# then you can \"ayy@a the next line to execute the vim command: 
+:h :write_c
+</pre>
+<ul>
+<li>
+<code>%</code>: expands to represent the path of the current buffer
+
+</ul>
+<h3 id="toc_1.0.2">References</h3>
+<pre>
+# If you open the file in vim,
+# then you can \"ayy@a the next line to execute the vim command: 
+:h :_%
 </pre>
 
 </section>
