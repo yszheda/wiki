@@ -256,54 +256,6 @@ blockquote {
   color: #222;
 }
 
-/* adapted from https://github.com/ktmud/kwiki_tpl */
-
-.tocWrap {
-    position: fixed; 
-    width: 200px;
-    z-index: 100;
-    top: 16%;
-    right: 2.8%;
-    display: none;
-}
-
-.toc {
-    display: block;
-    overflow: auto;
-    overflow-x: hidden;
-    border: 1px solid #F0C81E;
-    border-radius: 0 0 1px 1px;
-    -moz-border-radius: 0 0 1px 1px;
-    color: #999;
-    background: #0C1F2C;
-    background: rgba(10,30,40,0.85);
-    padding: 12px;
-    box-shadow: 0 1px 8px #000;
-    -webkit-box-shadow: 0 1px 8px #000;
-    -moz-box-shadow: 0 1px 8px #000;
-}
-
-.tocWrap .toggler {
-    text-align: center;
-    font-size: 12px;
-    background: #F0C81E;
-    border-radius: 2px 2px 0 0;
-    -moz-border-radius: 2px 2px 0 0;
-    color: #122;
-    position: relative;
-    z-index: 101;
-    cursor: pointer;
-}
-.toc ul {
-    margin: 0;
-}
-.toc li {
-    color: #eff;
-}
-.toc a {
-    color: #eff;
-}
-
 img {
   max-width: 100%;
 }
