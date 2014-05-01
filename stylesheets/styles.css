@@ -268,7 +268,7 @@ blockquote {
 }
 
 div toc {
-    display: none;
+    display: block;
     overflow: auto;
     overflow-x: hidden;
     border: 1px solid #F0C81E;
