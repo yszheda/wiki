@@ -84,8 +84,18 @@ Write all modified buffers to disk
 <li>
 If we enable the 'hidden' setting, then we can use the <code>:next</code>/<code>:bnext</code>/<code>:cnext</code> commands without a trailing bang.
 
-</ul>
+<li>
+After running <code>:argdo {cmd}</code>,
 
+<ul>
+<li>
+check buffers one by one: <code>:first</code>, <code>:wn</code>, etc.
+
+<li>
+save all buffers: <code>:argdo write</code> or <code>:wall</code>
+
+</ul>
+</ul>
 
 <h3 id="toc_1.1.1">References:</h3>
 <pre>
