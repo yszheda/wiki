@@ -42,6 +42,7 @@
 </ul>
 <li><a href="#toc_1.1">How to Use Tabs</a>
 <li><a href="#toc_1.2">Opening and Closing Tabs</a>
+<li><a href="#toc_1.3">Switching Between Tabs</a>
 </ul>
 </ul>
 </div>
@@ -74,6 +75,98 @@ a <em>tab page</em> is a container that can hold a collection of windows
 </p>
 
 <h2 id="toc_1.2">Opening and Closing Tabs</h2>
+
+<table>
+<tr>
+<td>
+Command
+</td>
+<td>
+Effect
+</td>
+</tr>
+<tr>
+<td>
+<code>:tabe[dit] {filename}</code>
+</td>
+<td>
+Open {filename} in a new tab
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;C-w&gt;T</code>
+</td>
+<td>
+Move the current window into its own tab
+</td>
+</tr>
+<tr>
+<td>
+<code>:tabc[lose]</code>
+</td>
+<td>
+Close the current tab page and all of its windows
+</td>
+</tr>
+<tr>
+<td>
+<code>:tabo[nly]</code>
+</td>
+<td>
+Keep the current tab page, closing all others
+</td>
+</tr>
+</table>
+
+<h2 id="toc_1.3">Switching Between Tabs</h2>
+
+<table>
+<tr>
+<td>
+Ex Command
+</td>
+<td>
+Normal Command
+</td>
+<td>
+Effect
+</td>
+</tr>
+<tr>
+<td>
+<code>:tabn[ext] {N}</code>
+</td>
+<td>
+<code>{N}gt</code>
+</td>
+<td>
+Switch to tab page number {N}
+</td>
+</tr>
+<tr>
+<td>
+<code>:tabn[ext]</code>
+</td>
+<td>
+<code>gt</code>
+</td>
+<td>
+Switch to the next tab page
+</td>
+</tr>
+<tr>
+<td>
+<code>:tabp[revious]</code>
+</td>
+<td>
+<code>gT</code>
+</td>
+<td>
+Switch to the previous tab page
+</td>
+</tr>
+</table>
 
 </section>
 <aside id="sidebar">
