@@ -83,6 +83,9 @@
 </pre>
 
 <h3 id="toc_1.2.3">Easy Expansion of the Active File Directory</h3>
+<pre>
+cnoremap &lt;expr&gt; %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+</pre>
 
 </section>
 <aside id="sidebar">
