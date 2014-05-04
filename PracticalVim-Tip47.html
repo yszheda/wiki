@@ -37,6 +37,9 @@
 <div class="toc">
 <ul>
 <li><a href="#toc_1">Tip 47: Distinguish Between Real Lines and Display Lines</a>
+<ul>
+<li><a href="#toc_1.1">Remap Line Motion Commands</a>
+</ul>
 </ul>
 </div>
 </p>
@@ -44,6 +47,7 @@
 <p>
 Pattern: <code>j</code>/<code>k</code>/<code>0</code>/<code>$</code> all interact with real lines, while prefixing any of these with <code>g</code> tells Vim to act on display lines instead.
 </p>
+
 <table>
 <tr>
 <td>
@@ -134,6 +138,14 @@ To end of display line
 </td>
 </tr>
 </table>
+
+<h2 id="toc_1.1">Remap Line Motion Commands</h2>
+<pre>
+nnoremap k gk
+nnoremap gk k
+nnoremap j gj
+nnoremap gj j
+</pre>
 
 </section>
 <aside id="sidebar">
