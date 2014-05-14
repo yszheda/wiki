@@ -36,6 +36,20 @@
 <a href="PracticalVim.html">Return to the top: &lt;&lt;Practical Vim&gt;&gt;</a>
 </p>
 
+<h2 id="toc_1.1">Find Hex Colors with Magic Search</h2>
+<p>
+Using magic search, we have to escape (,),|, and { characters to confer special meaning upon them.
+</p>
+<pre>
+/#\([0-9a-fA-F]\{6}\|[0-9a-fA-F]\{3}\)
+</pre>
+
+<h2 id="toc_1.2">Find Hex Colors with Very Magic Search</h2>
+
+<pre>
+/v#()
+</pre>
+
 </section>
 <aside id="sidebar">
 <p>Wiki maintained by <a href="https://github.com/yszheda">yszheda</a></p>
