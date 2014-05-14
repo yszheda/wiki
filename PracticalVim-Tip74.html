@@ -46,6 +46,23 @@ Use of <code>\V</code> means that in the pattern after it, only the backslash ha
 :h /\V
 </pre>
 
+<p>
+Example:
+Search 'a.k.a'
+</p>
+
+<ul>
+<li>
+runing <code>/a.k.a</code>: "." symbol matches any character
+
+<li>
+escaping: <code>/a\.k\.a\.</code>
+
+<li>
+using <code>\V</code> literal switch to enable very nomagic search: <code>/\Va.k.a.</code>
+
+</ul>
+
 </section>
 <aside id="sidebar">
 <p>Wiki maintained by <a href="https://github.com/yszheda">yszheda</a></p>
