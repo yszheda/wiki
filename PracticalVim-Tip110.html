@@ -39,6 +39,14 @@
 <pre>
 :vim[grep][!] /{pattern}/[g][j] {file} ...
 </pre>
+<ul>
+<li>
+When multiple matches are on the same line, the presence of the <code>g</code> flag creates a match for each one of them. Without it, only a single record is created for the entire line. 
+
+<li>
+By default, Vim will jump straight to the first match, but you can prevent this by including the <code>j</code> flag.
+
+</ul>
 
 </section>
 <aside id="sidebar">
