@@ -15,7 +15,7 @@
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<a href="http://yszheda.github.io/wiki"><title>PracticalVim-Tip108</title></a>
+<a href="http://yszheda.github.io/wiki"><title>PracticalVim-Tip109</title></a>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
@@ -31,62 +31,10 @@
 <div class="inner clearfix">
 <section id="main-content">
 
-<h1 id="toc_1">Tip 108: Call grep Without Leaving Vim</h1>
+<h1 id="toc_1">Tip 109: Customize the grep Program</h1>
 <p>
 <a href="PracticalVim.html">Return to the top: &lt;&lt;Practical Vim&gt;&gt;</a>
 </p>
-
-<h2 id="toc_1.1">Using grep from the Command Line</h2>
-<p>
-For example:
-</p>
-<pre>
-$ grep -n Waldo *
-department-store.txt:1:Waldo is beside the boot counter.
-goldrush.txt:6:Waldo is studying his clipboard.
-goldrush.txt:9:The penny farthing is 10 paces ahead of Waldo.
-</pre>
-<ul>
-<li>
-<code>-n</code>: include the line number in the printed output.
-
-<li>
-specify line number in vim:
-
-</ul>
-<p>
-e.g.
-</p>
-<pre>
-# open goldrush.txt at line 9
-$ vim goldrush.txt +9
-</pre>
-
-<h2 id="toc_1.2">Calling grep from Inside Vim</h2>
-<h3 id="toc_1.2.1">References:</h3>
-<pre>
-# If you open the file in vim,
-# then you can \"ayy@a the next line to execute the vim command: 
-:h :grep
-</pre>
-
-<p>
-For example:
-</p>
-<pre>
-:grep Waldo *
-</pre>
-<ul>
-<li>
-Vim parses the result and builds a quickfix list from them.
-
-<li>
-We can navigate through the result by <code>:cnext</code>/<code>:cprev</code>
-
-<li>
-Vim automatically include the <code>-n</code> flag.
-
-</ul>
 
 </section>
 <aside id="sidebar">
