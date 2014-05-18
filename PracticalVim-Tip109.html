@@ -99,6 +99,10 @@ The special tokens used in the 'grepformat' string are the same as those used by
 </pre>
 
 <h2 id="toc_1.3">Make ack Jump to Line and Column</h2>
+<pre>
+:set grepprg=ack\ --nogroup\ --column\ $*
+:set grepformat=%f:%l:%c:%m
+</pre>
 
 </section>
 <aside id="sidebar">
