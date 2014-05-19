@@ -15,7 +15,7 @@
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<title>PracticalVim-Tip105</title>
+<title>PracticalVim-Tip101</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
@@ -31,113 +31,16 @@
 <div class="inner clearfix">
 <section id="main-content">
 
-<h1 id="toc_1">Tip 105: Browse the Quick List</h1>
+<h1 id="toc_1">Tip 101: Meet ctags</h1>
 <p>
 <a href="PracticalVim.html">Return to the top: &lt;&lt;Practical Vim&gt;&gt;</a>
 </p>
 
-<p>
-Commands for Navigating the Quickfix List
-<table>
-<tr>
-<td>
-Command
-</td>
-<td>
-Action
-</td>
-</tr>
-<tr>
-<td>
-<code>:cnext</code>
-</td>
-<td>
-Jump to next item
-</td>
-</tr>
-<tr>
-<td>
-<code>:cprev</code>
-</td>
-<td>
-Jump to previous item
-</td>
-</tr>
-<tr>
-<td>
-<code>:cfirst</code>
-</td>
-<td>
-Jump to first item
-</td>
-</tr>
-<tr>
-<td>
-<code>:clast</code>
-</td>
-<td>
-Jump to last item
-</td>
-</tr>
-<tr>
-<td>
-<code>:cnfile</code>
-</td>
-<td>
-Jump to first item in next file
-</td>
-</tr>
-<tr>
-<td>
-<code>:cpfile</code>
-</td>
-<td>
-Jump to last item in previous file
-</td>
-</tr>
-<tr>
-<td>
-<code>:cc N</code>
-</td>
-<td>
-Jump to nth item
-</td>
-</tr>
-<tr>
-<td>
-<code>:copen</code>
-</td>
-<td>
-Open the quickfix window
-</td>
-</tr>
-<tr>
-<td>
-<code>:cclose</code>
-</td>
-<td>
-Close the quickfix window
-</td>
-</tr>
-</table>
-</p>
+<h2 id="toc_1.1">The Anatomy of a tags File</h2>
 
-<h3 id="toc_1.0.1">References:</h3>
-<pre>
-# If you open the file in vim,
-# then you can \"ayy@a the next line to execute the vim command: 
-:h quickfix
-</pre>
+<h3 id="toc_1.1.1">Keywords Are Adressed by Patterns, Not by Line Number</h3>
 
-<h2 id="toc_1.1">Meet the Location List</h2>
-<ul>
-<li>
-Any commands that interact with a location list (<code>:lnext</code>, <code>:lprev</code>, and so on) will act on the list that is bound to the currently active window.
-
-<li>
-quickfix list is globally throughout Vim.
-
-</ul>
+<h3 id="toc_1.1.2">Keywords Are Tagged with Metadata</h3>
 
 </section>
 <aside id="sidebar">

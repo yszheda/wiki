@@ -15,7 +15,7 @@
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<title>PracticalVim-Tip105</title>
+<title>PracticalVim-Tip102</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
@@ -31,113 +31,65 @@
 <div class="inner clearfix">
 <section id="main-content">
 
-<h1 id="toc_1">Tip 105: Browse the Quick List</h1>
+<h1 id="toc_1">Tip 102: Configure Vim to Work with ctags</h1>
 <p>
 <a href="PracticalVim.html">Return to the top: &lt;&lt;Practical Vim&gt;&gt;</a>
 </p>
 
-<p>
-Commands for Navigating the Quickfix List
-<table>
-<tr>
-<td>
-Command
-</td>
-<td>
-Action
-</td>
-</tr>
-<tr>
-<td>
-<code>:cnext</code>
-</td>
-<td>
-Jump to next item
-</td>
-</tr>
-<tr>
-<td>
-<code>:cprev</code>
-</td>
-<td>
-Jump to previous item
-</td>
-</tr>
-<tr>
-<td>
-<code>:cfirst</code>
-</td>
-<td>
-Jump to first item
-</td>
-</tr>
-<tr>
-<td>
-<code>:clast</code>
-</td>
-<td>
-Jump to last item
-</td>
-</tr>
-<tr>
-<td>
-<code>:cnfile</code>
-</td>
-<td>
-Jump to first item in next file
-</td>
-</tr>
-<tr>
-<td>
-<code>:cpfile</code>
-</td>
-<td>
-Jump to last item in previous file
-</td>
-</tr>
-<tr>
-<td>
-<code>:cc N</code>
-</td>
-<td>
-Jump to nth item
-</td>
-</tr>
-<tr>
-<td>
-<code>:copen</code>
-</td>
-<td>
-Open the quickfix window
-</td>
-</tr>
-<tr>
-<td>
-<code>:cclose</code>
-</td>
-<td>
-Close the quickfix window
-</td>
-</tr>
-</table>
-</p>
+<h2 id="toc_1.1">Tell Vim Where to Find the tags File</h2>
+<ul>
+<li>
+The 'tags' option specifies where Vim should look to find a tags file.
 
-<h3 id="toc_1.0.1">References:</h3>
+</ul>
+<h3 id="toc_1.1.1">References:</h3>
 <pre>
 # If you open the file in vim,
 # then you can \"ayy@a the next line to execute the vim command: 
-:h quickfix
+:h 'tags'
 </pre>
-
-<h2 id="toc_1.1">Meet the Location List</h2>
 <ul>
 <li>
-Any commands that interact with a location list (<code>:lnext</code>, <code>:lprev</code>, and so on) will act on the list that is bound to the currently active window.
+inspect the default settings:
+<pre>
+:set tags?
+tags=./tags,tags
+</pre>
 
 <li>
-quickfix list is globally throughout Vim.
+Under certain conditions, if a match is found in the first tags file, Vim won’t even look in the second file.
 
 </ul>
+<h3 id="toc_1.1.2">References:</h3>
+<pre>
+# If you open the file in vim,
+# then you can \"ayy@a the next line to execute the vim command: 
+:h tags-option
+</pre>
+
+<h2 id="toc_1.2">Generate the tags File</h2>
+<h3 id="toc_1.2.1">Simple Case: Execute catgs Manually</h3>
+<pre>
+:!ctags -R
+</pre>
+<ul>
+<li>
+create a mapping:
+<pre>
+:nnoremap &lt;f5&gt; :!ctags -R&lt;CR&gt;
+</pre>
+
+</ul>
+
+<h3 id="toc_1.2.2">Automatically Execute ctags Each Time a File is Saved</h3>
+<pre>
+:autocmd BufWritePost * call system("ctags -R")
+</pre>
+
+<h3 id="toc_1.2.3">Automatically Execute ctags with Version Control Hooks</h3>
+<p>
+<a href="http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html">Effortless Ctags with Git</a>
+</p>
 
 </section>
 <aside id="sidebar">
