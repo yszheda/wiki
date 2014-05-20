@@ -43,7 +43,32 @@
 <li>
 We can approximate the meaning of <code>&lt;</code> and <code>&gt;</code> by combining the <code>\w</code> and <code>\W</code> character classes with the <code>\zs</code> and <code>\ze</code> match delimiters.
 
+<ul>
+<li>
+<code>&lt;</code>: <code>\W\zs\w</code>
+
+<li>
+<code>&gt;</code>: <code>\w\ze\W</code>
+
+<ul>
+<li>
+<code>\w</code> matches word characters, including letters, numbers, and the "_" symbol
+
+<li>
+<code>\W</code> matches everything except for word characters.
+
 </ul>
+</ul>
+<li>
+In a very magic search, the naked &lt; and &gt; characters are interpreted as word delimiters, but in magic, nomagic, and very nomagic searches we have to escape them.
+
+</ul>
+<h3 id="toc_1.0.1">References:</h3>
+<pre>
+# If you open the file in vim,
+# then you can \"ayy@a the next line to execute the vim command: 
+:h /\&lt;
+</pre>
 
 </section>
 <aside id="sidebar">
