@@ -40,9 +40,18 @@
 <p>
 Example:
 </p>
+
+<ul>
+<li>
+yank the URL into register u with the command <code>"uyi[</code>
+
+<li>
+<code>/\V&lt;C-r&gt;u&lt;CR&gt;</code> to populate the search field with the contents of that same register.
 <pre>
 /\Vhttp://vimdoc.net/search?q=/\\
 </pre>
+
+</ul>
 
 <p>
 Vim interpreted the first <code>/</code> character as a search field terminator.
@@ -74,6 +83,21 @@ escape({string}, {chars})
 # then you can \"ayy@a the next line to execute the vim command: 
 :h escape()
 </pre>
+
+<p>
+Example:
+</p>
+<ul>
+<li>
+Store the URL in the u register:
+
+<li>
+Enter the \V literal switch and then type &lt;C-r&gt;=.
+<pre>
+=escape(@u, getcmdtype().'\')
+</pre>
+
+</ul>
 
 </section>
 <aside id="sidebar">
