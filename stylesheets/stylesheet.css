@@ -102,6 +102,14 @@ header h1 {
   width: 540px;
 }
 
+header h1 a {
+  color: #99FFCC;
+}
+
+header h1 a:hover {
+  color: #ff0;
+}
+
 header h2 {
   font-size: 26px;
   color: #9ddcff;
