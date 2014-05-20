@@ -75,6 +75,20 @@ Vim also supports the full matrix of negative/positive lookahead/lookbehind asse
 :h perl-patterns
 </pre>
 
+<p>
+Example:
+Rewrite
+</p>
+<pre>
+/\v"\zs[^"]+\ze"&lt;CR&gt;
+</pre>
+<p>
+using Vim’s positive lookaround items
+</p>
+<pre>
+/\v"@&lt;=[^"]+"@=
+</pre>
+
 </section>
 <aside id="sidebar">
 <p>Wiki maintained by <a href="https://github.com/yszheda">yszheda</a></p>
