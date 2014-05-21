@@ -76,6 +76,18 @@ mute the search highlighting temporarily: <code>:nohlsearch</code>
 </pre>
 
 <h2 id="toc_1.2">Create a Shortcut to Mute Highlighting</h2>
+<pre>
+nnoremap &lt;silent&gt; &lt;C-l&gt; :&lt;C-u&gt;nohlsearch&lt;CR&gt;&lt;C-l&gt;
+</pre>
+<p>
+Normally, <code>&lt;C-l&gt;</code> clears and redraws the screen:
+</p>
+<h3 id="toc_1.2.1">References:</h3>
+<pre>
+# If you open the file in vim,
+# then you can \"ayy@a the next line to execute the vim command: 
+:h CTRL-L
+</pre>
 
 </section>
 <aside id="sidebar">
