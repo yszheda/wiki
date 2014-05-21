@@ -85,9 +85,16 @@ Patterns are saved in Vim’s search history, while substitute commands are save
 </pre>
 <ul>
 <li>
-Pressing <code>&lt;C-r&gt;/</code> at the command line pastes the contents of the last search register in place. 
+Solution: pressing <code>&lt;C-r&gt;/</code> at the command line pastes the contents of the last search register in place. 
 
 </ul>
+
+<p>
+Example:
+</p>
+<pre>
+:%s/&lt;C-r&gt;//“\1”/g
+</pre>
 
 </section>
 <aside id="sidebar">
