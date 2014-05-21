@@ -40,7 +40,21 @@
 <ul>
 <li>
 insert the contents of a register by typing <code>&lt;C-r&gt;{register}</code>
+<pre>
+:%s//&lt;C-r&gt;0/g
+</pre>
 
+<li>
+Problems:
+
+<ul>
+<li>
+If the text in register 0 contains any characters that have special meaning within the replacement field (such as &amp; or ~, for example), we would have to edit the string by hand to escape those characters.
+
+<li>
+If register 0 contained a multiline excerpt of text, it might not fit on the command line.
+
+</ul>
 </ul>
 
 </section>
