@@ -41,7 +41,7 @@
 Leaving the search field of the substitute command blank instructs Vim to reuse the most recent search pattern.
 
 <li>
-Decouple composing a pattern and devising a suitable replacement string.
+→ Decouple composing a pattern and devising a suitable replacement string.
 
 </ul>
 
@@ -69,6 +69,14 @@ join every line of a file by replacing newlines with commas:
 </pre>
 
 <h2 id="toc_1.2">Implications for Command History</h2>
+<ul>
+<li>
+Patterns are saved in Vim’s search history, while substitute commands are saved in the history of Ex commands
+
+<li>
+→ Decoupling the search and replacement tasks causes the two pieces of information to be placed in separate silos, which could cause difficulty if you want to reuse an old substitute command later.
+
+</ul>
 
 </section>
 <aside id="sidebar">
