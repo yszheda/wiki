@@ -36,9 +36,14 @@
 <a href="PracticalVim.html">Return to the top: &lt;&lt;Practical Vim&gt;&gt;</a>
 </p>
 
-<p>
+<ul>
+<li>
 Leaving the search field of the substitute command blank instructs Vim to reuse the most recent search pattern.
-</p>
+
+<li>
+Decouple composing a pattern and devising a suitable replacement string.
+
+</ul>
 
 <p>
 Example:
@@ -53,6 +58,8 @@ equivalent to:
 /\v'(([^']|'\w)+)'
 :%s//“\1”/g
 </pre>
+
+<h2 id="toc_1.1">It’s Not Always Appropriate</h2>
 
 </section>
 <aside id="sidebar">
