@@ -32,6 +32,20 @@
 <section id="main-content">
 
 <h1 id="toc_1">Tip 86: Search for the Current Visual Selection</h1>
+<p>
+<a href="PracticalVim.html">Return to the top: &lt;&lt;Practical Vim&gt;&gt;</a>
+</p>
+
+<pre>
+xnoremap * :&lt;C-u&gt;call &lt;SID&gt;VSetSearch()&lt;CR&gt;/&lt;C-R&gt;=@/&lt;CR&gt;&lt;CR&gt;
+xnoremap # :&lt;C-u&gt;call &lt;SID&gt;VSetSearch()&lt;CR&gt;?&lt;C-R&gt;=@/&lt;CR&gt;&lt;CR&gt;
+function! s:VSetSearch()
+let temp = @s
+norm! gv"sy
+let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+let @s = temp
+endfunction
+</pre>
 
 </section>
 <aside id="sidebar">
