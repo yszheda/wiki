@@ -40,6 +40,20 @@
 Leaving the search field of the substitute command blank instructs Vim to reuse the most recent search pattern.
 </p>
 
+<p>
+Example:
+</p>
+<pre>
+:%s/\v'(([^']|'\w)+)'/“\1”/g
+</pre>
+<p>
+equivalent to:
+</p>
+<pre>
+/\v'(([^']|'\w)+)'
+:%s//“\1”/g
+</pre>
+
 </section>
 <aside id="sidebar">
 <p>Wiki maintained by <a href="https://github.com/yszheda">yszheda</a></p>
