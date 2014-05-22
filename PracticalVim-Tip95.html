@@ -15,7 +15,7 @@
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<title>PracticalVim-Tip97</title>
+<title>PracticalVim-Tip95</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
@@ -31,47 +31,58 @@
 <div class="inner clearfix">
 <section id="main-content">
 
-<h1 id="toc_1">Tip 97: Meet the Global Command</h1>
+<h1 id="toc_1">Tip 95: Swap Two or More Words</h1>
 <p>
 <a href="PracticalVim.html">Return to the top: &lt;&lt;Practical Vim&gt;&gt;</a>
 </p>
 
 <p>
-Format of <code>:global</code>:
+Example: swap "dog" and "man"
 </p>
 <pre>
-:[range] global[!] /{pattern}/ [cmd]
+The dog bit the man.
 </pre>
-<h3 id="toc_1.0.1">References:</h3>
+
+<h2 id="toc_1.1">Return the Other Word</h2>
+<p>
+creating two key-value pairs
+</p>
+<pre>
+:let swapper={"dog":"man","man":"dog"}
+:echo swapper["dog"]
+« man
+:echo swapper["man"]
+« dog
+</pre>
+
+<h2 id="toc_1.2">Match Both Words</h2>
+<pre>
+/\v(&lt;man&gt;|&lt;dog&gt;)
+</pre>
+
+<h2 id="toc_1.3">All Together Now</h2>
+<p>
+fetch the captured text by calling the <code>submatch()</code> function in Vim script:
+</p>
+<h3 id="toc_1.3.1">References:</h3>
 <pre>
 # If you open the file in vim,
 # then you can \"ayy@a the next line to execute the vim command: 
-:h :g
+:h submatch()
 </pre>
-<ul>
-<li>
-The default range for the <code>:global</code> command is the entire file (<code>%</code>).
 
-<ul>
-<li>
-Most other Ex commands (<code>:delete</code>/<code>:substitute</code>/<code>:normal</code>): the current line (<code>.</code>) by default.
+<pre>
+/\v(&lt;man&gt;|&lt;dog&gt;)
+:%s//\={"dog":"man","man":"dog"}[submatch(1)]/g
+</pre>
 
-</ul>
-<li>
-The <code>{pattern}</code> field integrates with search history → we can leave it blank and Vim will automatically use the current search pattern.
-
-<li>
-The <code>[cmd]</code> could be any Ex command except for another <code>:global</code> command.
-
-<ul>
-<li>
-If we don't specify a <code>[cmd]</code>, then Vim will use <code>:print</code> by default.
-
-</ul>
-<li>
-<code>:global!</code>/<code>:vglobal</code>: invert the behavior of the <code>:global</code> command.
-
-</ul>
+<h2 id="toc_1.4">Abolish.vim: A Supercharged Substitute Command</h2>
+<p>
+<a href="https://github.com/tpope/vim-abolish">abolish.vim</a>
+</p>
+<pre>
+:%S/{man,dog}/{dog,man}/g
+</pre>
 
 </section>
 <aside id="sidebar">
