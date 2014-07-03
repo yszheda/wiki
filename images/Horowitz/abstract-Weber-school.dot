@@ -1,0 +1,6 @@
+digraph WeberStudents
+{
+"Friedrich Dionysius Weber (1766-1842)" -> "Ignaz Moscheles (1794-1870)";
+"Ignaz Moscheles (1794-1870)" -> "Felix Menselssohn (1809-1847)";
+"Ignaz Moscheles (1794-1870)" -> "Edvard Grieg (1843-1907)";
+}

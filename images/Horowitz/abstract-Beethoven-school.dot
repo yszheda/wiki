@@ -1,0 +1,29 @@
+digraph BeethovenStudents
+{
+rankdir=LR;
+Beethoven -> "Carl Czerny (1791-1857)";
+"Carl Czerny (1791-1857)" -> Listz;
+Listz -> "Carl Tausig (1841-1871)";
+Listz -> "Hans von Bülow (1830-1894)";
+Listz -> "Alexander Siloti (1863-1945)";
+Listz -> "Martin Krause (1853-1918)";
+Listz -> "Eugen d'Albert (1864-1932)";
+"Martin Krause (1853-1918)" -> Arrau;
+"Martin Krause (1853-1918)" -> "Edwin Fischer (1886-1960)";
+"Edwin Fischer (1886-1960)" -> Brendel;
+"Edwin Fischer (1886-1960)" -> Barenboim;
+"Alexander Siloti (1863-1945)" -> Rachmaninoff;
+"Carl Czerny (1791-1857)" -> Leschetizky;
+Leschetizky -> Schnabel;
+Leschetizky -> Friedman;
+Leschetizky -> Paderewski;
+Leschetizky -> Moiseiwitsch;
+Leschetizky -> Brailowsky;
+Leschetizky -> "Elly Ney";
+Leschetizky -> Horszowski;
+Leschetizky -> Yesipova;
+Leschetizky -> "Vasily Illyrich Safonov (1852-1918)";
+"Vasily Illyrich Safonov (1852-1918)" -> Scriabin;
+"Vasily Illyrich Safonov (1852-1918)" -> Levina;
+Schnabel -> "Sir Clifford Curzon (1907-1982)";
+}

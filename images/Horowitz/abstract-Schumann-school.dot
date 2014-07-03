@@ -1,0 +1,8 @@
+digraph SchumannStudents
+{
+"Clara Schumann (1819-1896)" -> "Fanny Davies (1861-1934)";
+"Clara Schumann (1819-1896)" -> "Adelina de Lara (1872-1961)";
+"Clara Schumann (1819-1896)" -> "Mathilde Verne (1865-1936)";
+"Mathilde Verne (1865-1936)" -> "Moura Lympany (1916-2005)";
+"Mathilde Verne (1865-1936)" -> "Solomon (1902-1988)";
+}

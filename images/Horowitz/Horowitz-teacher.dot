@@ -1,0 +1,18 @@
+digraph HorowitzTeacher
+{
+Clementi -> Cramer;
+Cramer -> Field;
+Field -> Villoing;
+Villoing -> Rubinstein;
+Rubinstein -> Blumenfeld;
+
+Beethoven -> Czerny;
+Czerny -> Leschetizky;
+Leschetizky -> Puchalski;
+Leschetizky -> Essipova;
+Essipova -> Tarnowsky;
+
+Blumenfeld -> Horowitz;
+Puchalski -> Horowitz;
+Tarnowsky -> Horowitz;
+}

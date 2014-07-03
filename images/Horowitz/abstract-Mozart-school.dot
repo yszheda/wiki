@@ -1,0 +1,9 @@
+digraph MozartStudents
+{
+Mozart -> "Johann Nepomuk Hummel (1778-1837)"
+-> "Sigismond Thalberg (1812-1871)"
+-> "Charles Wilfrid de Bériot (1833-1914)";
+"Charles Wilfrid de Bériot (1833-1914)" -> "Enrique Granados (1867-1916)";
+"Charles Wilfrid de Bériot (1833-1914)" -> "Maurice Ravel (1875-1937)";
+}
+

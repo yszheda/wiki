@@ -1,0 +1,12 @@
+digraph ChopinStudents
+{
+Chopin -> "Émile Descombes (1829-1912)";
+Chopin -> "Karol Mikuli (1819-1897)";
+"Émile Descombes (1829-1912)" -> "Alfred Denis Cortot (1877-1962)";
+"Émile Descombes (1829-1912)" -> "Marguerite Long (1874-1966)";
+"Alfred Denis Cortot (1877-1962)" -> "Murray Perahia (1947-)";
+"Karol Mikuli (1819-1897)" -> "Moriz Rosenthal (1862-1946)";
+"Karol Mikuli (1819-1897)" -> "Aleksander Michalowski (1851-1938)";
+"Karol Mikuli (1819-1897)" -> "Raoul Koczalski (1884-1948)";
+"Aleksander Michalowski (1851-1938)" -> "Wanda Landowska (1879-1959)";
+}
