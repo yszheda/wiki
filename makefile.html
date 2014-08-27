@@ -38,6 +38,12 @@
 <ul>
 <li><a href="#toc_1.1">Automatic Variables</a>
 <li><a href="#toc_1.2">File Name Functions</a>
+<li><a href="#toc_1.3">Recursive Wildcard</a>
+<li><a href="#toc_1.4">Filter Out By Pattern</a>
+<ul>
+<li><a href="#toc_1.4.1">Use <code>filter-out</code></a>
+<li><a href="#toc_1.4.2">More General Solution</a>
+</ul>
 </ul>
 </ul>
 </div>
@@ -134,6 +140,77 @@ OBJPROG = $(addprefix $(OBJDIR)/, $(OBJECTS))
 Reference: 
 <a href="http://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html">http://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html</a>
 </p>
+
+<h2 id="toc_1.3">Recursive Wildcard</h2>
+<p>
+Sample code from my <strong>Android.mk</strong>:
+</p>
+<pre>
+############################################################
+# automatically set LOCAL_SRC_FILES and LOCAL_C_INCLUDES
+############################################################
+SRC_SUFFIX := *.cpp *.c 
+SRC_ROOT := $(LOCAL_PATH)/../../Classes
+
+# recursive wildcard
+rwildcard = $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d))
+SRC_FILES := $(call rwildcard,$(SRC_ROOT)/,$(SRC_SUFFIX))
+LOCAL_SRC_FILES := $(SRC_FILES:$(LOCAL_PATH)/%=%)
+</pre>
+
+<p>
+Equivalently, you can use extern shell command:
+</p>
+<pre>
+# WARNING: Shell command is used, it is only works on a UNIX-like OS.
+# Replace it with Makefile rules if you want to run on Windows.
+SRC_FILES := $(shell find $(SRC_ROOT) -type f)
+LOCAL_SRC_FILES := $(SRC_FILES:$(LOCAL_PATH)/%=%)
+</pre>
+
+<h2 id="toc_1.4">Filter Out By Pattern</h2>
+<p>
+Sample code from my <strong>Android.mk</strong> (here we do not want to compile the source code from some thrid party libraries):
+</p>
+<h3 id="toc_1.4.1">Use <code>filter-out</code></h3>
+<pre>
+# exclude ASIO source code from $(SRC_FILES)
+EXCLUDE_SRC_FILES := $(SRC_ROOT)/3rdParty/Asio/asio/impl/%.cpp
+SRC_FILES := $(filter-out $(EXCLUDE_SRC_FILES),$(SRC_FILES))
+</pre>
+
+<p>
+<em>NOTE</em>: <code>filter-out</code> cannot handle complex regex like <code>%${infix}%</code>. Therefore, you might have to know what exactly are in the paths of the third party libraries.
+</p>
+
+<h3 id="toc_1.4.2">More General Solution</h3>
+<p>
+Sample code from my <strong>Android.mk</strong> (here we do not want to compile the source code from some thrid party libraries):
+</p>
+<pre>
+# exclude ASIO source code from $(SRC_FILES)
+EXCLUDE_SRC_PATTERN := asio
+FILTER_OUT_PATTERN = $(foreach v,$(2),$(if $(findstring $(1),$(v)),,$(v)))
+SRC_FILES := $(call FILTER_OUT_PATTERN,$(EXCLUDE_SRC_PATTERN),$(SRC_FILES))
+</pre>
+
+<p>
+<em>NOTE:</em>
+</p>
+<ul>
+<li>
+I strongly recommend this method because the details of the third party libraries are hidden and it doesn't depend on external commands, which is portable.
+
+<li>
+DO NOT use <strong>SPACE</strong> to format the Makefile formulas!
+
+</ul>
+<p>
+e.g. The following command will not work as expected, since the " " is treated as part of the input strings.
+</p>
+<pre>
+SRC_FILES := $(call FILTER_OUT_PATTERN, $(EXCLUDE_SRC_PATTERN), $(SRC_FILES))
+</pre>
 
 </section>
 <aside id="sidebar">
