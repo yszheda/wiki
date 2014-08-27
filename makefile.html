@@ -168,6 +168,24 @@ SRC_FILES := $(shell find $(SRC_ROOT) -type f)
 LOCAL_SRC_FILES := $(SRC_FILES:$(LOCAL_PATH)/%=%)
 </pre>
 
+<p>
+Reference: 
+</p>
+<ul>
+<li>
+[Android.mk - build all source file in a directory](<a href="http://stackoverflow.com/questions/18348969/android-mk-build-all-source-file-in-a-directory)">http://stackoverflow.com/questions/18348969/android-mk-build-all-source-file-in-a-directory)</a>
+
+<li>
+[Recursive wildcards in GNU make?](<a href="http://stackoverflow.com/questions/2483182/recursive-wildcards-in-gnu-make)">http://stackoverflow.com/questions/2483182/recursive-wildcards-in-gnu-make)</a>
+
+<li>
+[Sources from subdirectories in Makefile](<a href="http://stackoverflow.com/questions/4036191/sources-from-subdirectories-in-makefile)">http://stackoverflow.com/questions/4036191/sources-from-subdirectories-in-makefile)</a>
+
+<li>
+[Makefile issue: smart way to scan directory tree for .c files](<a href="http://stackoverflow.com/questions/3774568/makefile-issue-smart-way-to-scan-directory-tree-for-c-files)">http://stackoverflow.com/questions/3774568/makefile-issue-smart-way-to-scan-directory-tree-for-c-files)</a>
+
+</ul>
+
 <h2 id="toc_1.4">Filter Out By Pattern</h2>
 <p>
 Sample code from my <strong>Android.mk</strong> (here we do not want to compile the source code from some thrid party libraries):
@@ -211,6 +229,18 @@ e.g. The following command will not work as expected, since the " " is treated a
 <pre>
 SRC_FILES := $(call FILTER_OUT_PATTERN, $(EXCLUDE_SRC_PATTERN), $(SRC_FILES))
 </pre>
+
+<p>
+Reference: 
+</p>
+<ul>
+<li>
+[Makefile: Filter out strings containing a character](<a href="http://stackoverflow.com/questions/6145041/makefile-filter-out-strings-containing-a-character)">http://stackoverflow.com/questions/6145041/makefile-filter-out-strings-containing-a-character)</a>
+
+<li>
+[Makefile Using ifeq condition inside foreach loop](<a href="http://stackoverflow.com/questions/8503043/makefile-using-ifeq-condition-inside-foreach-loop)">http://stackoverflow.com/questions/8503043/makefile-using-ifeq-condition-inside-foreach-loop)</a>
+
+</ul>
 
 </section>
 <aside id="sidebar">
