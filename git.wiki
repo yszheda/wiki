@@ -1,0 +1,246 @@
+= My Git Tips =
+%toc
+== Git Low-level Commands ==
+
+Print SHA1 hash
+{{{
+$ git rev-parse master
+$ git rev-parse ca82a6dff817
+$ git rev-parse v0.1
+ca82a6dff817ec66f44342007202690a93763949
+}}}
+
+{{{
+$ git cat-file -p
+}}}
+
+
+{{{
+$ git ls-files -s
+}}}
+
+{{{
+$ git write-tree
+}}}
+
+== Log ==
+
+{{{
+$ git log --follow <file>
+}}}
+
+Show diffs first for the HEAD version and then the MERGE_HEAD version
+{{{
+$ git log --merge --left-right -p [<file>]
+}}}
+
+Search <string>
+{{{
+$ git log -S<string> [--pretty=oneline] [--abbrev-commit] <file>
+}}}
+
+== Diff ==
+
+{{{
+$ git diff master bug/pr-1
+# equivalent to
+$ git diff master..bug/pr-1
+}}}
+
+{{{
+$ git diff -S<string>
+$ git diff -S"<string>"
+}}}
+
+== Commit ==
+
+{{{
+$ git bisect [start | bad | good]
+}}}
+
+
+== Merge ==
+
+* Policies:
+	- resolve
+	- recursive
+	- octopus
+
+
+== Reset ==
+
+Alterations:
+| options | HEAD | index | work_dir |
+| --soft  | Yes  | No    | No       |
+| --mixed | Yes  | Yes   | No       |
+| --hard  | Yes  | Yes   | Yes      |
+
+{{{
+$ git cherry-pick <commit>
+}}}
+
+{{{
+# on branch master
+$ git cherry-pick A..C
+# will add A' B' C' commits on branch master
+}}}
+
+== Rebase ==
+
+
+== Stash ==
+
+{{{
+$ git stash pop
+# equivalent to
+$ git stash apply
+$ git stash drop
+}}}
+
+{{{
+# reapply the staged changes
+$ git stash apply --index
+}}}
+e.g.
+{{{
+$ git stash apply --index
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#      modified:   index.html
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#
+#      modified:   lib/simplegit.rb
+#
+}}}
+
+`git stash --keep-index`: not stash anything that you’ve already staged with the git add command.
+e.g.
+{{{
+$ git status -s
+M  index.html
+ M lib/simplegit.rb
+
+$ git stash --keep-index
+Saved working directory and index state WIP on master: 1b65b17 added the index file
+HEAD is now at 1b65b17 added the index file
+
+$ git status -s
+M  index.html
+}}}
+
+`git --include-untracked/-u`: stash the untracked files as well as the tracked ones. 
+e.g.
+{{{
+$ git status -s
+M  index.html
+ M lib/simplegit.rb
+?? new-file.txt
+
+$ git stash -u
+Saved working directory and index state WIP on master: 1b65b17 added the index file
+HEAD is now at 1b65b17 added the index file
+
+$ git status -s
+$
+}}}
+
+Creating a Branch from a Stash:
+{{{
+$ git stash branch <branch-name>
+}}}
+
+== Reflog ==
+
+{{{
+$ git reflog expire --expire=now --all
+$ git gc
+}}}
+
+
+== Remote ==
+
+{{{
+$ git remote -v
+}}}
+
+Delete a remote branch
+{{{
+$ git push origin --delete <branch name>
+# or
+$ git push origin :<branch name>
+# if your branch name is the same as some tag name,
+# there will be an error like:
+# error: dst refspec v2.0 matches more than one.
+# Therefore, you have to provide the specified ref like:
+$ git push origin :refs/heads/v2.0
+}}}
+
+
+== Useful Tips ==
+
+Delete tmp files
+{{{
+$ git filter-branch --tree-filter 'rm -f *~' -- --all
+}}}
+
+Obtain a file from another branch
+{{{
+$ git checkout <branch> -- <file name>
+# or (in case you want to rename the file)
+$ git show <branch>:<path of file> > <new file name>
+}}}
+
+Overview of what has been changed 
+{{{
+$ git whatchanged --since="three days ago" --oneline
+}}}
+{{{
+$ git whatchanged ORIG_HEAD...HEAD
+}}}
+
+Search
+{{{
+$ git grep
+}}}
+
+Control file tracing
+{{{
+# [add Makefile changes I do not want published]
+$ git update-index --no-assume-unchanged Makefile
+$ git add -p Makefile
+# [add Makefile changes I want published]
+$ git commmit
+$ git update-index --assume-unchanged Makefile
+$ git push
+}}}
+
+If you want to commit the changes after deleting lots of files without using `git rm`:
+{{{
+# easier `git` way
+$ git add -u
+# or more exactly
+$ git status | grep deleted | awk '{print $3}' | xargs git rm
+}}} 
+
+Change commit date(修复因系统时间出错而导致的提交时间问题，也可以用来刷Github的streak~XD):
+{{{
+$ git commit --amend --date=<new date>
+# e.g.
+$ git commit --amend --date="$(date -R)"
+}}}
+
+Fix corrupt git index:
+{{{
+# backup maybe...
+$ rm -f .git/index
+$ git reset
+# or using lower level command
+$ git read-tree
+
+# if the problem is with index for packfile, recover it using
+$ git index-pack
+}}}
