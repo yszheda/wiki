@@ -221,6 +221,70 @@ $ git stash apply
 $ git stash drop
 </pre>
 
+<pre>
+# reapply the staged changes
+$ git stash apply --index
+</pre>
+<p>
+e.g.
+</p>
+<pre>
+$ git stash apply --index
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD &lt;file&gt;..." to unstage)
+#
+#      modified:   index.html
+#
+# Changed but not updated:
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#
+#      modified:   lib/simplegit.rb
+#
+</pre>
+
+<p>
+<code>git stash --keep-index</code>: not stash anything that you’ve already staged with the git add command.
+e.g.
+</p>
+<pre>
+$ git status -s
+M  index.html
+ M lib/simplegit.rb
+
+$ git stash --keep-index
+Saved working directory and index state WIP on master: 1b65b17 added the index file
+HEAD is now at 1b65b17 added the index file
+
+$ git status -s
+M  index.html
+</pre>
+
+<p>
+<code>git --include-untracked/-u</code>: stash the untracked files as well as the tracked ones. 
+e.g.
+</p>
+<pre>
+$ git status -s
+M  index.html
+ M lib/simplegit.rb
+?? new-file.txt
+
+$ git stash -u
+Saved working directory and index state WIP on master: 1b65b17 added the index file
+HEAD is now at 1b65b17 added the index file
+
+$ git status -s
+$
+</pre>
+
+<p>
+Creating a Branch from a Stash:
+</p>
+<pre>
+$ git stash branch &lt;branch-name&gt;
+</pre>
+
 <h2 id="toc_1.9">Reflog</h2>
 
 <pre>
@@ -315,6 +379,20 @@ Change commit date(修复因系统时间出错而导致的提交时间问题，�
 $ git commit --amend --date=&lt;new date&gt;
 # e.g.
 $ git commit --amend --date="$(date -R)"
+</pre>
+
+<p>
+Fix corrupt git index:
+</p>
+<pre>
+# backup maybe...
+$ rm -f .git/index
+$ git reset
+# or using lower level command
+$ git read-tree
+
+# if the problem is with index for packfile, recover it using
+$ git index-pack
 </pre>
 
 </section>
