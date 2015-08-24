@@ -316,25 +316,29 @@ $ git push origin :refs/heads/v2.0
 
 <h2 id="toc_1.11">Useful Tips</h2>
 
-<p>
+<ul>
+<li>
 Delete tmp files
-</p>
 <pre>
 $ git filter-branch --tree-filter 'rm -f *~' -- --all
 </pre>
 
-<p>
+</ul>
+
+<ul>
+<li>
 Obtain a file from another branch
-</p>
 <pre>
 $ git checkout &lt;branch&gt; -- &lt;file name&gt;
 # or (in case you want to rename the file)
 $ git show &lt;branch&gt;:&lt;path of file&gt; &gt; &lt;new file name&gt;
 </pre>
 
-<p>
+</ul>
+
+<ul>
+<li>
 Overview of what has been changed 
-</p>
 <pre>
 $ git whatchanged --since="three days ago" --oneline
 </pre>
@@ -342,16 +346,20 @@ $ git whatchanged --since="three days ago" --oneline
 $ git whatchanged ORIG_HEAD...HEAD
 </pre>
 
-<p>
+</ul>
+
+<ul>
+<li>
 Search
-</p>
 <pre>
 $ git grep
 </pre>
 
-<p>
+</ul>
+
+<ul>
+<li>
 Control file tracing
-</p>
 <pre>
 # [add Makefile changes I do not want published]
 $ git update-index --no-assume-unchanged Makefile
@@ -362,28 +370,39 @@ $ git update-index --assume-unchanged Makefile
 $ git push
 </pre>
 
-<p>
+</ul>
+
+<ul>
+<li>
 If you want to commit the changes after deleting lots of files without using <code>git rm</code>:
-</p>
 <pre>
 # easier `git` way
 $ git add -u
 # or more exactly
 $ git status | grep deleted | awk '{print $3}' | xargs git rm
+# or (from Jonathan Leffler)
+$ git status | sed -n '/^# *deleted:/s///p' | xargs git rm
+# or (from Vijay C)
+$ git rm $(git ls-files --deleted)
+# refer to http://stackoverflow.com/questions/6004453/how-to-remove-multiple-deleted-files-in-git-repository
 </pre>
 
-<p>
+</ul>
+
+<ul>
+<li>
 Change commit date(修复因系统时间出错而导致的提交时间问题，也可以用来刷Github的streak~XD):
-</p>
 <pre>
 $ git commit --amend --date=&lt;new date&gt;
 # e.g.
 $ git commit --amend --date="$(date -R)"
 </pre>
 
-<p>
+</ul>
+
+<ul>
+<li>
 Fix corrupt git index:
-</p>
 <pre>
 # backup maybe...
 $ rm -f .git/index
@@ -394,6 +413,8 @@ $ git read-tree
 # if the problem is with index for packfile, recover it using
 $ git index-pack
 </pre>
+
+</ul>
 
 </section>
 <aside id="sidebar">
