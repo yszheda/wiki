@@ -384,7 +384,11 @@ $ git status | grep deleted | awk '{print $3}' | xargs git rm
 $ git status | sed -n '/^# *deleted:/s///p' | xargs git rm
 # or (from Vijay C)
 $ git rm $(git ls-files --deleted)
-# refer to http://stackoverflow.com/questions/6004453/how-to-remove-multiple-deleted-files-in-git-repository
+# refer to:
+# http://stackoverflow.com/questions/6004453/how-to-remove-multiple-deleted-files-in-git-repository
+# http://stackoverflow.com/questions/492558/removing-multiple-files-from-a-git-repo-that-have-already-been-deleted-from-disk
+# http://stackoverflow.com/questions/6090732/delete-files-from-git-index-when-they-are-already-deleted-from-fs
+# http://stackoverflow.com/questions/3169787/remove-all-deleted-files-from-changed-but-not-updated-in-git
 </pre>
 
 </ul>
