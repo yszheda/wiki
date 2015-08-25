@@ -43,10 +43,11 @@
 <li><a href="#toc_1.5">Merge</a>
 <li><a href="#toc_1.6">Reset</a>
 <li><a href="#toc_1.7">Rebase</a>
-<li><a href="#toc_1.8">Stash</a>
-<li><a href="#toc_1.9">Reflog</a>
-<li><a href="#toc_1.10">Remote</a>
-<li><a href="#toc_1.11">Useful Tips</a>
+<li><a href="#toc_1.8">Archive</a>
+<li><a href="#toc_1.9">Stash</a>
+<li><a href="#toc_1.10">Reflog</a>
+<li><a href="#toc_1.11">Remote</a>
+<li><a href="#toc_1.12">Useful Tips</a>
 </ul>
 </ul>
 </div>
@@ -211,8 +212,15 @@ $ git cherry-pick A..C
 
 <h2 id="toc_1.7">Rebase</h2>
 
+<h2 id="toc_1.8">Archive</h2>
 
-<h2 id="toc_1.8">Stash</h2>
+<p>
+<a href="http://blog.nutsfactory.net/2010/02/01/git-archive-and-log/">http://blog.nutsfactory.net/2010/02/01/git-archive-and-log/</a>
+<a href="http://git-scm.com/docs/git-archive">http://git-scm.com/docs/git-archive</a>
+<a href="http://stackoverflow.com/questions/160608/do-a-git-export-like-svn-export">http://stackoverflow.com/questions/160608/do-a-git-export-like-svn-export</a>
+</p>
+
+<h2 id="toc_1.9">Stash</h2>
 
 <pre>
 $ git stash pop
@@ -285,7 +293,7 @@ Creating a Branch from a Stash:
 $ git stash branch &lt;branch-name&gt;
 </pre>
 
-<h2 id="toc_1.9">Reflog</h2>
+<h2 id="toc_1.10">Reflog</h2>
 
 <pre>
 $ git reflog expire --expire=now --all
@@ -293,7 +301,7 @@ $ git gc
 </pre>
 
 
-<h2 id="toc_1.10">Remote</h2>
+<h2 id="toc_1.11">Remote</h2>
 
 <pre>
 $ git remote -v
@@ -314,7 +322,7 @@ $ git push origin :refs/heads/v2.0
 </pre>
 
 
-<h2 id="toc_1.11">Useful Tips</h2>
+<h2 id="toc_1.12">Useful Tips</h2>
 
 <ul>
 <li>
